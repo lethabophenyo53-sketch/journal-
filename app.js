@@ -1,152 +1,73 @@
-// IMPORTS
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  collection,
-  addDoc
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-
-// YOUR FIREBASE CONFIG
-const firebaseConfig = {
-  apiKey: "AIzaSyBY7EFdQse7HWFFA504j9k_UMY9y9oWSrM",
-  authDomain: "journal-5a5c3.firebaseapp.com",
-  projectId: "journal-5a5c3",
-};
-
-// INIT
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-
-// 🔐 SIGN UP
-window.signup = async function () {
+// ===== SIGN UP =====
+function signup() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const userCred = await createUserWithEmailAndPassword(auth, email, password);
+  if (!email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
 
-  // CREATE USER IN DATABASE
-  await setDoc(doc(db, "users", userCred.user.uid), {
-    email: email,
-    paid: false
-  });
+  localStorage.setItem("userEmail", email);
+  localStorage.setItem("userPassword", password);
 
-  window.location.href = "journal.html";
-};
+  alert("Account created!");
+}
 
-
-// 🔐 LOGIN
-window.login = async function () {
+// ===== LOGIN =====
+function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  await signInWithEmailAndPassword(auth, email, password);
+  const savedEmail = localStorage.getItem("userEmail");
+  const savedPassword = localStorage.getItem("userPassword");
 
-  window.location.href = "journal.html";
-};
-
-
-// 🚪 LOGOUT
-window.logout = async function () {
-  await signOut(auth);
-  window.location.href = "index.html";
-};
-
-
-// 🔒 CHECK IF USER PAID
-async function checkAccess(user) {
-  const docRef = doc(db, "users", user.uid);
-  const userDoc = await getDoc(docRef);
-
-  if (!userDoc.exists() || userDoc.data().paid === false) {
-    alert("Pay R50 first!");
-    window.location.href = "pay.html";
+  if (email === savedEmail && password === savedPassword) {
+    window.location.href = "journal.html";
+  } else {
+    alert("Wrong email or password");
   }
 }
 
-
-// 📓 SAVE JOURNAL
-window.saveEntry = async function () {
+// ===== SAVE JOURNAL ENTRY =====
+function saveEntry() {
   const entry = document.getElementById("entry").value;
 
-  await addDoc(collection(db, "journals"), {
+  if (!entry) {
+    alert("Write something first");
+    return;
+  }
+
+  let entries = JSON.parse(localStorage.getItem("entries")) || [];
+  entries.push({
     text: entry,
-    date: new Date()
+    date: new Date().toLocaleString()
   });
 
-  alert("Saved!");
-};
+  localStorage.setItem("entries", JSON.stringify(entries));
 
-
-// 💳 FAKE PAYMENT
-window.fakePayment = async function () {
-  const user = auth.currentUser;
-
-  await setDoc(doc(db, "users", user.uid), {
-    paid: true
-  }, { merge: true });
-
-  alert("Payment done!");
-  window.location.href = "journal.html";
-};
-
-
-// ✨ AFFIRMATIONS
-const affirmations = [
-  "I am enough ❤️",
-  "I believe in myself ✨",
-  "Today is a fresh start 🌅"
-];
-
-const aff = document.getElementById("affirmation");
-if (aff) {
-  aff.innerText = affirmations[Math.floor(Math.random() * affirmations.length)];
+  alert("Entry saved!");
+  document.getElementById("entry").value = "";
 }
 
+// ===== LOGOUT =====
+function logout() {
+  window.location.href = "index.html";
+}
 
-// 🔥 RUN CHECK WHEN USER OPENS JOURNAL
-onAuthStateChanged(auth, (user) => {
-  if (user && window.location.pathname.includes("journal.html")) {
-    checkAccess(user);
+// ===== AFFIRMATION (auto text on journal page) =====
+window.onload = function () {
+  const affirmations = [
+    "You are doing your best 🌸",
+    "Your thoughts matter ✨",
+    "Growth takes time 🌱",
+    "Be proud of how far you’ve come 💖"
+  ];
+
+  const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+  const el = document.getElementById("affirmation");
+
+  if (el) {
+    el.innerText = random;
   }
-});
-window.payWithPaystack = function () {
-  const user = auth.currentUser;
-
-  let handler = PaystackPop.setup({
-    key: "PUT_YOUR_PUBLIC_KEY_HERE", // 🔥 replace this
-    email: user.email,
-    amount: 5000, // 50 rand (Paystack uses cents)
-
-    callback: async function(response) {
-      // ✅ Payment successful
-
-      await setDoc(doc(db, "users", user.uid), {
-        paid: true
-      }, { merge: true });
-
-      alert("Payment successful 🎉");
-
-      window.location.href = "journal.html";
-    },
-
-    onClose: function() {
-      alert("Payment cancelled");
-    }
-  });
-
-  handler.openIframe();
 };
