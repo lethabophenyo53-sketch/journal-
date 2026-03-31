@@ -1,10 +1,19 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #ff9ecf, #a18cd1);
 }
 
-/* 📖 BOOK CONTAINER */
+/* LOGIN CENTER */
+.center {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BOOK SCROLL */
 .book {
   display: flex;
   overflow-x: scroll;
@@ -12,7 +21,7 @@ body {
   height: 100vh;
 }
 
-/* 📄 EACH PAGE */
+/* PAGE STYLE */
 .page {
   min-width: 100vw;
   height: 100vh;
@@ -20,7 +29,6 @@ body {
   box-sizing: border-box;
 
   background: #fffdf7;
-  border-right: 2px solid #f0dede;
 
   scroll-snap-align: start;
 
@@ -29,57 +37,41 @@ body {
   justify-content: center;
 }
 
-/* ✨ TEXT */
+/* TEXT */
 h2 {
   color: #ff4da6;
 }
 
-.bigAffirmation {
-  font-size: 24px;
+/* AFFIRMATION */
+#affirmation {
+  font-size: 22px;
   font-weight: bold;
-  margin-bottom: 20px;
+  color: #7a4cff;
 }
 
-.page {
-  min-width: 100vw;
-  height: 100vh;
-  padding: 40px;
-  box-sizing: border-box;
-
-  background: #fffdf7;
-  border-right: 2px solid #f0dede;
-
-  scroll-snap-align: start;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.page:active {
-  transform: scale(0.98);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-/* ✍️ WRITING SPACE */
+/* TEXTAREAS (HANDWRITING) */
 textarea {
   width: 100%;
   height: 250px;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 16px;
-  line-height: 1.6;
+  margin-top: 10px;
 
-  textarea {
-  width: 100%;
-  height: 300px;
   border: none;
   outline: none;
   background: transparent;
+
   font-size: 18px;
   line-height: 1.8;
+
   font-family: 'Patrick Hand', cursive;
 }
+
+/* BUTTONS */
+button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4da6;
+  color: white;
+  cursor: pointer;
 }
