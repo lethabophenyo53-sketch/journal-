@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Daily Growth Journal</title>
+  <title>Growth Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
-    <h1>🌸 Daily Growth Journal</h1>
 
-    <p id="welcome"></p>
-    <p id="affirmation" class="affirmation"></p>
+    <h1>🌸 Growth Journal</h1>
 
-    <h3>How are you feeling today?</h3>
+    <button onclick="toggleDarkMode()">🌙 Toggle Mode</button>
+
+    <p id="affirmation"></p>
+    <p id="prompt"></p>
+
+    <h3>Today's Mood</h3>
     <div class="moods">
-      <button onclick="setMood('😊 Happy')">😊</button>
-      <button onclick="setMood('😔 Sad')">😔</button>
-      <button onclick="setMood('😡 Angry')">😡</button>
-      <button onclick="setMood('😌 Calm')">😌</button>
-      <button onclick="setMood('🤯 Stressed')">🤯</button>
+      <button onclick="setMood('😊')">😊</button>
+      <button onclick="setMood('😔')">😔</button>
+      <button onclick="setMood('😡')">😡</button>
+      <button onclick="setMood('😌')">😌</button>
+      <button onclick="setMood('🤯')">🤯</button>
     </div>
 
     <p id="selectedMood"></p>
 
-    <textarea id="entry">
-Dear Diary...
+    <textarea id="entry" placeholder="Dear Diary..."></textarea>
 
-Today I feel:
-
-What happened today:
-
-One thing I learned:
-
-Grateful for:
-    </textarea>
-
-    <button onclick="saveEntry()">Save Entry</button>
+    <button onclick="saveEntry()">Save</button>
     <button onclick="logout()">Logout</button>
 
-    <h3>Your Journey 🌱</h3>
+    <h3>📅 Your Entries</h3>
     <div id="entries"></div>
+
+    <h3>📊 Mood Summary</h3>
+    <div id="moodStats"></div>
+
   </div>
 
   <script src="app.js"></script>
