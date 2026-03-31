@@ -107,3 +107,9 @@ label {
   display: block;
   margin: 10px 0;
 }
+.guide {
+  font-size: 14px;
+  color: #7a5c8a;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
