@@ -8,43 +8,16 @@
 <body>
   <div class="container">
 
-    <h1>🌸 Glow Journal</h1>
+    <h1>💖 Glow Journal</h1>
 
-    <!-- 💖 IMAGE HERE -->
-    <img src="https://i.pinimg.com/564x/7f/4c/5c/7f4c5c1f3a4d3c9c3b6a8c7c8f9f9f9f.jpg" width="120" style="border-radius:20px;">
+    <img src="https://i.pinimg.com/564x/ab/9d/5a/ab9d5a6c3e9c7b1c5f5c6d2b8e4a1b2c.jpg" width="140">
 
-    <h2 id="bigMessage"></h2>
-    <p id="affirmation"></p>
-    <p id="prompt"></p>
+    <!-- PAGE CONTENT -->
+    <div id="page"></div>
 
-    <h3>How are you feeling?</h3>
-    <div class="moods">
-      <button onclick="setMood('😊')">😊</button>
-      <button onclick="setMood('😔')">😔</button>
-      <button onclick="setMood('😡')">😡</button>
-      <button onclick="setMood('😌')">😌</button>
-      <button onclick="setMood('🤯')">🤯</button>
-    </div>
-
-    <p id="selectedMood"></p>
-
-    <textarea id="entry">
-Dear Diary...
-
-Today I feel:
-
-What happened today:
-
-One thing I learned:
-
-Grateful for:
-    </textarea>
-
-    <button onclick="saveEntry()">Save Entry</button>
-    <button onclick="logout()">Logout</button>
-
-    <h3>🌱 Your Journey</h3>
-    <div id="entries"></div>
+    <!-- NAV BUTTONS -->
+    <button onclick="prevPage()">⬅</button>
+    <button onclick="nextPage()">➡</button>
 
   </div>
 
