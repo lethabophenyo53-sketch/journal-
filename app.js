@@ -52,6 +52,26 @@ function login() {
     alert("Wrong login ❌");
   }
 }
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const savedEmail = localStorage.getItem("email");
+  const savedPassword = localStorage.getItem("password");
+
+  if (email === "lethabophenyo53@gmail.com" && password === "1234") {
+    localStorage.setItem("premium", "true");
+    alert("Admin access granted 💎");
+    window.location.href = "journal.html";
+    return;
+  }
+
+  if (email === savedEmail && password === savedPassword) {
+    window.location.href = "journal.html";
+  } else {
+    alert("Wrong login ❌");
+  }
+}
 
 /* ---------------- AFFIRMATION ---------------- */
 function initJournal() {
