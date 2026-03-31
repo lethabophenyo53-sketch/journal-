@@ -1,54 +1,88 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #ffe6f0, #f5f5ff);
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff9ecf, #a18cd1, #fad0c4);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  transition: 0.3s;
 }
 
-.dark {
-  background: #1e1e2f;
-  color: white;
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
 }
 
 .container {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  width: 350px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 25px;
+  width: 360px;
   text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
-.dark .container {
-  background: #2a2a40;
+h1 {
+  font-size: 28px;
+  color: #ff4da6;
+}
+
+#affirmation {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+#prompt {
+  font-weight: bold;
+  color: #7a4cff;
+  margin-bottom: 10px;
 }
 
 textarea {
-  width: 90%;
-  height: 120px;
-  margin: 10px;
+  width: 95%;
+  height: 130px;
+  border-radius: 15px;
+  border: none;
+  padding: 12px;
+  background: #fff0f6;
+  box-shadow: inset 0 3px 8px rgba(0,0,0,0.1);
 }
 
 button {
-  padding: 8px;
-  margin: 5px;
-  border-radius: 10px;
+  margin: 6px;
+  padding: 10px 15px;
+  border-radius: 20px;
   border: none;
-  background: #ff66a3;
+  background: linear-gradient(135deg, #ff4da6, #7a4cff);
   color: white;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .moods button {
-  font-size: 20px;
-  background: #eee;
+  font-size: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
 }
 
 .entry-card {
-  background: #fafafa;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #fff, #ffe6f0);
+  padding: 12px;
+  border-radius: 15px;
+  margin: 10px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: left;
 }
