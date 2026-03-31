@@ -44,4 +44,38 @@ function autoSave() {
       localStorage.setItem(id, el.value);
     });
   });
+
+  let currentPage = 0;
+
+function showPage(index) {
+  const pages = document.querySelectorAll(".page");
+
+  pages.forEach((page, i) => {
+    if (i === index) {
+      page.classList.add("active");
+    } else {
+      page.classList.remove("active");
+    }
+  });
+}
+
+function nextPage() {
+  const pages = document.querySelectorAll(".page");
+  if (currentPage < pages.length - 1) {
+    currentPage++;
+    showPage(currentPage);
+  }
+}
+
+function prevPage() {
+  if (currentPage > 0) {
+    currentPage--;
+    showPage(currentPage);
+  }
+}
+
+/* START */
+window.onload = () => {
+  showPage(0);
+};
 }
