@@ -11,8 +11,8 @@
 
   <h1>💖 Glow Journal</h1>
 
-  <img src="https://i.pinimg.com/564x/7f/4c/5c/7f4c5c1f3a4d3c9c3b6a8c7c8f9f9f9f.jpg" 
-       width="120" 
+  <img src="https://i.pinimg.com/564x/7f/4c/5c/7f4c5c1f3a4d3c9c3b6a8c7c8f9f9f9f.jpg"
+       width="120"
        style="border-radius:20px;">
 
   <input id="email" type="email" placeholder="Email">
@@ -26,30 +26,8 @@
   <button onclick="payNow()">Upgrade to Premium 💎</button>
 
 </div>
-  
-function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
 
-  const savedEmail = localStorage.getItem("email");
-  const savedPassword = localStorage.getItem("password");
-
-  // 🟣 ADMIN LOGIN (YOU)
-  if (email === "lethabophenyo53@gmail.com" && password === "1234") {
-    localStorage.setItem("premium", "true");
-    alert("Admin access granted 💎");
-    window.location.href = "journal.html";
-    return;
-  }
-
-  // normal user login
-  if (email === savedEmail && password === savedPassword) {
-    window.location.href = "journal.html";
-  } else {
-    alert("Wrong login ❌");
-  }
-}
-<!-- 💳 PAYSTACK SCRIPT (ONLY ONCE) -->
+<!-- 💳 PAYSTACK -->
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <!-- ⚙️ YOUR APP LOGIC -->
