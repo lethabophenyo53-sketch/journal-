@@ -1,60 +1,12 @@
-function signup() {
-  localStorage.setItem("email", document.getElementById("email").value);
-  localStorage.setItem("password", document.getElementById("password").value);
-  alert("Account created 💖");
-}
+let currentPage = 0;
 
-function login() {
-  const email = document.getElementById("email").value;
-  const pass = document.getElementById("password").value;
-
-  if (
-    email === localStorage.getItem("email") &&
-    pass === localStorage.getItem("password")
-  ) {
-    window.location.href = "journal.html";
-  } else {
-    alert("Wrong login");
-  }
-}
-
-function initJournal() {
-  const affirmations = [
-    "You are growing beautifully.",
-    "You are safe and becoming your best self.",
-    "Peace is already yours.",
-    "You are doing better than you think."
-  ];
-
-  document.getElementById("affirmation").innerText =
-    affirmations[Math.floor(Math.random() * affirmations.length)];
-
-  autoSave();
-}
-
-/* SAVE TEXT */
-function autoSave() {
-  ["affNote", "diary", "free"].forEach(id => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    el.value = localStorage.getItem(id) || "";
-
-    el.addEventListener("input", () => {
-      localStorage.setItem(id, el.value);
-    });
-  });
-
-  let currentPage = 0;
-
-function showPage(index) {
+function showPage() {
   const pages = document.querySelectorAll(".page");
 
-  pages.forEach((page, i) => {
-    if (i === index) {
-      page.classList.add("active");
-    } else {
-      page.classList.remove("active");
+  pages.forEach((p, i) => {
+    p.classList.remove("active");
+    if (i === currentPage) {
+      p.classList.add("active");
     }
   });
 }
@@ -63,19 +15,44 @@ function nextPage() {
   const pages = document.querySelectorAll(".page");
   if (currentPage < pages.length - 1) {
     currentPage++;
-    showPage(currentPage);
+    showPage();
   }
 }
 
 function prevPage() {
   if (currentPage > 0) {
     currentPage--;
-    showPage(currentPage);
+    showPage();
   }
 }
 
-/* START */
-window.onload = () => {
-  showPage(0);
-};
+/* LOGIN */
+function signup() {
+  localStorage.setItem("email", email.value);
+  localStorage.setItem("password", password.value);
+  alert("Account created 💖");
+}
+
+function login() {
+  if (
+    email.value === localStorage.getItem("email") &&
+    password.value === localStorage.getItem("password")
+  ) {
+    window.location.href = "journal.html";
+  } else {
+    alert("Wrong login");
+  }
+}
+
+/* AFFIRMATION */
+function initJournal() {
+  const list = [
+    "You are becoming her.",
+    "You are safe even in silence.",
+    "Your healing is valid.",
+    "You are doing better than you think."
+  ];
+
+  document.getElementById("affirmation").innerText =
+    list[Math.floor(Math.random() * list.length)];
 }
