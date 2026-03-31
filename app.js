@@ -158,4 +158,27 @@ window.onload = function () {
     music.pause();
   }
 }
+  function setReminder() {
+  setInterval(() => {
+
+    const reminder = document.createElement("div");
+
+    reminder.innerText = "💖 Hey bestie… time to journal ✨";
+
+    reminder.style.position = "fixed";
+    reminder.style.bottom = "20px";
+    reminder.style.right = "20px";
+    reminder.style.background = "linear-gradient(135deg, #ff4da6, #7a4cff)";
+    reminder.style.color = "white";
+    reminder.style.padding = "15px";
+    reminder.style.borderRadius = "15px";
+    reminder.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+    reminder.style.fontWeight = "bold";
+
+    document.body.appendChild(reminder);
+
+    setTimeout(() => reminder.remove(), 5000);
+
+  }, 30000);
+}
 };
