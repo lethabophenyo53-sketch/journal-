@@ -11,7 +11,7 @@ function signup() {
   localStorage.setItem("userEmail", email);
   localStorage.setItem("userPassword", password);
 
-  alert("Account created!");
+  alert("Account created successfully!");
 }
 
 // ===== LOGIN =====
@@ -29,7 +29,7 @@ function login() {
   }
 }
 
-// ===== SAVE JOURNAL ENTRY =====
+// ===== SAVE ENTRY =====
 function saveEntry() {
   const entry = document.getElementById("entry").value;
 
@@ -39,6 +39,7 @@ function saveEntry() {
   }
 
   let entries = JSON.parse(localStorage.getItem("entries")) || [];
+
   entries.push({
     text: entry,
     date: new Date().toLocaleString()
@@ -46,8 +47,28 @@ function saveEntry() {
 
   localStorage.setItem("entries", JSON.stringify(entries));
 
-  alert("Entry saved!");
   document.getElementById("entry").value = "";
+
+  displayEntries();
+}
+
+// ===== DISPLAY ENTRIES =====
+function displayEntries() {
+  let entries = JSON.parse(localStorage.getItem("entries")) || [];
+  let container = document.getElementById("entries");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  entries.forEach(e => {
+    container.innerHTML += `
+      <div style="border-bottom:1px solid #ddd; margin:5px 0;">
+        <p>${e.text}</p>
+        <small>${e.date}</small>
+      </div>
+    `;
+  });
 }
 
 // ===== LOGOUT =====
@@ -55,19 +76,19 @@ function logout() {
   window.location.href = "index.html";
 }
 
-// ===== AFFIRMATION (auto text on journal page) =====
+// ===== AFFIRMATIONS + LOAD ENTRIES =====
 window.onload = function () {
   const affirmations = [
-    "You are doing your best 🌸",
+    "You are doing amazing 🌸",
     "Your thoughts matter ✨",
     "Growth takes time 🌱",
-    "Be proud of how far you’ve come 💖"
+    "Be proud of yourself 💖"
   ];
 
   const random = affirmations[Math.floor(Math.random() * affirmations.length)];
-  const el = document.getElementById("affirmation");
+  const aff = document.getElementById("affirmation");
 
-  if (el) {
-    el.innerText = random;
-  }
+  if (aff) aff.innerText = random;
+
+  displayEntries();
 };
