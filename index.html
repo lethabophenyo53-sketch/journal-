@@ -26,7 +26,29 @@
   <button onclick="payNow()">Upgrade to Premium 💎</button>
 
 </div>
+  
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
+  const savedEmail = localStorage.getItem("email");
+  const savedPassword = localStorage.getItem("password");
+
+  // 🟣 ADMIN LOGIN (YOU)
+  if (email === "lethabophenyo53@gmail.com" && password === "1234") {
+    localStorage.setItem("premium", "true");
+    alert("Admin access granted 💎");
+    window.location.href = "journal.html";
+    return;
+  }
+
+  // normal user login
+  if (email === savedEmail && password === savedPassword) {
+    window.location.href = "journal.html";
+  } else {
+    alert("Wrong login ❌");
+  }
+}
 <!-- 💳 PAYSTACK SCRIPT (ONLY ONCE) -->
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
