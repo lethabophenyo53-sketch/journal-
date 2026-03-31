@@ -2,57 +2,45 @@
 <html>
 <head>
   <title>Glow Journal</title>
-
   <link rel="stylesheet" href="style.css">
-
-  <!-- ✍️ handwriting font -->
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
 
 <body onload="initJournal()">
 
 <div class="book">
 
-  <!-- PAGE 1 -->
   <div class="page">
     <h2>✨ Affirmation of the Day</h2>
-    <p id="affirmation"></p>
-    <textarea id="affNote" placeholder="How does this make you feel?"></textarea>
+    <div id="affirmation"></div>
+    <textarea id="affNote" placeholder="Reflect on this affirmation..."></textarea>
   </div>
 
-  <!-- PAGE 2 -->
   <div class="page">
-    <h2>🌱 Dear Diary</h2>
-    <textarea id="diary">
-Today I felt...
+    <h2>📖 Dear Diary</h2>
+    <textarea id="diary">Today I felt...
 
 What happened...
 
 What I learned...
 
-Grateful for...
-    </textarea>
+Grateful for...</textarea>
   </div>
 
-  <!-- PAGE 3 -->
   <div class="page">
-    <h2>💭 Free Write</h2>
-    <textarea id="free"></textarea>
+    <h2>💭 Inner Thoughts</h2>
+    <textarea id="free" placeholder="Write freely..."></textarea>
   </div>
 
-  <!-- PAGE 4 -->
   <div class="page">
-    <h2>✨ Glow Up Check</h2>
-
-    <label><input type="checkbox"> Water 💧</label><br>
-    <label><input type="checkbox"> Exercise 🏃‍♀️</label><br>
-    <label><input type="checkbox"> Self-care 💆‍♀️</label><br>
-    <label><input type="checkbox"> Positive mindset 💖</label><br>
+    <h2>🌿 Daily Check-In</h2>
+    <label><input type="checkbox"> Hydrated 💧</label>
+    <label><input type="checkbox"> Moved my body 🏃‍♀️</label>
+    <label><input type="checkbox"> Ate well 🥗</label>
+    <label><input type="checkbox"> Took care of myself 💆‍♀️</label>
   </div>
 
 </div>
 
 <script src="app.js"></script>
-
 </body>
 </html>
