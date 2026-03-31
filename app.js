@@ -181,4 +181,27 @@ window.onload = function () {
 
   }, 30000);
 }
+
+  // ===== AUTO SAVE =====
+function autoSave() {
+  const fields = [
+    "affirmationNote",
+    "guidedEntry",
+    "freeWrite"
+  ];
+
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+
+    if (el) {
+      // Load saved data
+      el.value = localStorage.getItem(id) || el.value;
+
+      // Save on typing
+      el.addEventListener("input", () => {
+        localStorage.setItem(id, el.value);
+      });
+    }
+  });
+}
 };
