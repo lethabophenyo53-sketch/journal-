@@ -5,6 +5,52 @@ let currentMood = "";
 function renderPage() {
   const page = document.getElementById("page");
 
+ function renderPage() {
+  const page = document.getElementById("page");
+
+  page.style.opacity = 0;
+
+  setTimeout(() => {
+
+    const affirmations = [
+      "You are the main character 💖",
+      "Everything is working out ✨",
+      "You deserve soft love 🌸"
+    ];
+
+    const affirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+
+    const pages = [
+      `<div>
+        <h2>✨ Affirmation</h2>
+        <p class="bigAffirmation">${affirmation}</p>
+        <textarea placeholder="How does this make you feel?"></textarea>
+      </div>`,
+
+      `<div>
+        <h2>🌱 Your Day</h2>
+        <textarea>Today I felt...</textarea>
+      </div>`,
+
+      `<div>
+        <h2>💭 Free Write</h2>
+        <textarea placeholder="Let it all out 💖"></textarea>
+      </div>`,
+
+      `<div>
+        <h2>✨ Glow Up</h2>
+        <p><input type="checkbox"> Water 💧</p>
+        <p><input type="checkbox"> Exercise 🏃‍♀️</p>
+      </div>`
+    ];
+
+    page.innerHTML = pages[pageIndex];
+
+    page.style.opacity = 1;
+
+  }, 200);
+}
+
   const affirmations = [
     "You are the main character 💖",
     "Everything is working out for you ✨",
