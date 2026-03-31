@@ -6,26 +6,52 @@
 </head>
 
 <body>
-  <div class="container">
 
-    <h1>💖 Glow Journal</h1>
+<div class="book">
 
-    <img src="https://i.pinimg.com/564x/ab/9d/5a/ab9d5a6c3e9c7b1c5f5c6d2b8e4a1b2c.jpg" width="140">
-    
-<audio id="bgMusic" autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b7c6e.mp3" type="audio/mp3">
-</audio>
+  <!-- 🌸 PAGE 1 -->
+  <div class="page">
+    <h2>✨ Affirmation of the Day</h2>
+    <p class="bigAffirmation" id="affirmation"></p>
 
-<button onclick="toggleMusic()">🎵 Music</button>
-    <!-- PAGE CONTENT -->
-    <div id="page"></div>
-
-    <!-- NAV BUTTONS -->
-    <button onclick="prevPage()">⬅</button>
-    <button onclick="nextPage()">➡</button>
-
+    <textarea placeholder="How does this make you feel?"></textarea>
   </div>
 
-  <script src="app.js"></script>
+  <!-- 🌱 PAGE 2 -->
+  <div class="page">
+    <h2>🌱 Dear Diary...</h2>
+
+    <textarea>
+Today I feel...
+
+What happened today...
+
+What I learned...
+
+Grateful for...
+    </textarea>
+  </div>
+
+  <!-- 💭 PAGE 3 -->
+  <div class="page">
+    <h2>💭 Free Your Mind</h2>
+
+    <textarea placeholder="Write anything... no rules 💖"></textarea>
+  </div>
+
+  <!-- ✨ PAGE 4 -->
+  <div class="page">
+    <h2>✨ Glow Up Check</h2>
+
+    <p><input type="checkbox"> Drank water 💧</p>
+    <p><input type="checkbox"> Exercised 🏃‍♀️</p>
+    <p><input type="checkbox"> Took care of yourself 💆‍♀️</p>
+    <p><input type="checkbox"> Positive mindset 💖</p>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+
 </body>
 </html>
