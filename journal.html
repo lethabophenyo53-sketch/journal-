@@ -9,148 +9,100 @@
 
 <div class="book">
 
-  <button class="nav left" onclick="prevPage()">‹</button>
-
-  <div class="pages" id="pages">
-
-    <div class="page active">WELCOME TO YOUR SAFE SPACE</div>
-    <div class="page">PAGE 2</div>
-    <div class="page">PAGE 3</div>
-    <div class="page">PAGE 4</div>
-    <div class="page">PAGE 5</div>
-    <div class="page">PAGE 6</div>
-    <div class="page">PAGE 7</div>
-
+  <!-- PAGE 1: MOTIVATIONAL STORY -->
+  <div class="page active">
+    <div class="card">
+      <h2>🌸 A Soft Beginning</h2>
+      <p>
+        There once was a girl who thought she had to be perfect every day.
+        But life taught her something softer — that healing is not linear.
+        Some days she shined, some days she broke, but she always became stronger.
+        And slowly, she learned: <b>it is okay to have bad days.</b>
+      </p>
+    </div>
   </div>
 
-  <button class="nav right" onclick="nextPage()">›</button>
+  <!-- PAGE 2: GUIDED FEELINGS -->
+  <div class="page">
+    <div class="card">
+      <h2>🌤️ How are you feeling today?</h2>
+      <p>Tell me about your day. No pressure. Just honesty.</p>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <!-- PAGE 3: EMPOWERMENT QUESTION -->
+  <div class="page">
+    <div class="card">
+      <h2>💖 Big Sister Check-in</h2>
+      <p>What hurt you today? What made you smile? Let it out.</p>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <!-- PAGE 4: GOALS -->
+  <div class="page">
+    <div class="card">
+      <h2>🎯 Your Goals</h2>
+      <p>What are you building for yourself right now?</p>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <!-- PAGE 5: INNER THOUGHTS -->
+  <div class="page">
+    <div class="card">
+      <h2>🌙 Inner Thoughts</h2>
+      <p>Write what you usually hide from the world.</p>
+      <textarea></textarea>
+    </div>
+  </div>
+
+  <!-- PAGE 6: GLOW CHECK (FIXED ALIGNMENT) -->
+  <div class="page">
+    <div class="card">
+      <h2>✨ Glow Check</h2>
+
+      <div class="glow">
+        <label><input type="checkbox"> Drink water 💧</label>
+        <label><input type="checkbox"> Eat something healthy 🥗</label>
+        <label><input type="checkbox"> Move your body 🏃‍♀️</label>
+        <label><input type="checkbox"> Take care of yourself 💆‍♀️</label>
+        <label><input type="checkbox"> Rest properly 😴</label>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAGE 7: AFFIRMATION -->
+  <div class="page">
+    <div class="card">
+      <h2>✨ Your Reminder</h2>
+      <div id="affirmation"></div>
+    </div>
+  </div>
+
+  <!-- PAGE 8: ENDING POEM -->
+  <div class="page">
+    <div class="card">
+      <h2>🌿 Closing Page</h2>
+      <p>
+        You did not fail today.  
+        You are learning, growing, becoming.  
+        Even your quiet days matter.  
+        Even your messy days matter.  
+        <br><br>
+        <b>I am the big sister you always needed.</b> 💖
+      </p>
+    </div>
+  </div>
 
 </div>
 
-  
-
-  <!-- PAGE 1: STORY / OPENING -->
-  <div class="page">
-    <div class="card story">
-
-      <h2>🌸 A Gentle Reminder for You</h2>
-
-      <p>
-        Once there was a girl who thought she had to be perfect every day.
-        She believed that if she felt sad or tired, she was failing.
-      </p>
-
-      <p>
-        But slowly, she learned something powerful…
-        🌿 Bad days are not failures. They are part of becoming.
-      </p>
-
-      <p>
-        Some days you will glow. Some days you will rest.
-        Both are okay. Both are growth.
-      </p>
-
-      <p>
-        You are not behind. You are becoming.
-        And I’m proud of you for being here today 💖
-      </p>
-
-    </div>
-  </div>
-
-  <!-- PAGE 2: HOW WAS YOUR DAY -->
-  <div class="page">
-    <div class="card">
-      <h2>🌤️ How was your day?</h2>
-
-      <p class="guide">Take your time… I’m listening 💖</p>
-
-      <textarea id="dayCheck"
-        placeholder="How did your day feel? What happened today?"></textarea>
-    </div>
-  </div>
-
-  <!-- PAGE 3: GOALS -->
-  <div class="page">
-    <div class="card">
-      <h2>🎯 Your Goals & Dreams</h2>
-
-      <p class="guide">Let’s focus on what you are becoming 🌱</p>
-
-      <textarea id="goals"
-        placeholder="What are your goals? Who do you want to become?"></textarea>
-    </div>
-  </div>
-
-  <!-- PAGE 4: INNER THOUGHTS -->
-  <div class="page">
-    <div class="card">
-      <h2>💖 Inner Thoughts</h2>
-
-      <p class="guide">No judgement. Just honesty 🤍</p>
-
-      <textarea id="inner"
-        placeholder="Write everything you're feeling inside..."></textarea>
-    </div>
-  </div>
-
-  <!-- PAGE 5: AFFIRMATION -->
-  <div class="page">
-    <div class="card">
-      <h2>✨ Your Daily Affirmation</h2>
-
-      <div id="affirmation"></div>
-
-      <textarea id="reflection"
-        placeholder="Do you believe this today? Why?"></textarea>
-    </div>
-  </div>
-
-  <!-- PAGE 6: GLOW CHECK -->
-  <div class="page">
-    <div class="card">
-      <h2>🌿 Glow Check</h2>
-
-      <label><input type="checkbox"> Drank water 💧</label>
-      <label><input type="checkbox"> Ate well 🥗</label>
-      <label><input type="checkbox"> Moved your body 🏃‍♀️</label>
-      <label><input type="checkbox"> Self-care 💆‍♀️</label>
-      <label><input type="checkbox"> Kind to yourself 💖</label>
-
-    </div>
-  </div>
-
-  <!-- PAGE 7: CLOSING POEM -->
-  <div class="page">
-    <div class="card story">
-
-      <h2>🌙 Before You Go...</h2>
-
-      <p>
-        You made it through today, even if it was hard.
-      </p>
-
-      <p>
-        You don’t have to be perfect to be worthy.
-        You just have to keep going 🌸
-      </p>
-
-      <p>
-        Rest if you need to.
-        Try again when you’re ready.
-      </p>
-
-      <p>
-        You are growing quietly… beautifully… powerfully.
-      </p>
-
-      <p style="font-weight:bold; color:#7c3aed;">
-        I am proud of you 💖
-      </p>
-
-    </div>
-  </div>
-
+<!-- NAVIGATION -->
+<div class="nav">
+  <button onclick="prevPage()">‹</button>
+  <button onclick="nextPage()">›</button>
 </div>
 
 <script src="app.js"></script>
