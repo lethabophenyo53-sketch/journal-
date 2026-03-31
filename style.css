@@ -54,5 +54,19 @@ button {
 
 .moods button {
   font-size: 20px;
+
+  #page {
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 20px;
+  background: #fff0f6;
+  min-height: 200px;
+}
+
+.bigAffirmation {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff4da6;
+}
   background: #fff;
 }
