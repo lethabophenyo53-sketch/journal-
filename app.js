@@ -1,22 +1,31 @@
-// 🔥 IMPORT FIREBASE (IMPORTANT)
+// IMPORTS
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 
-// 🔑 YOUR FIREBASE CONFIG
+// YOUR FIREBASE CONFIG
 const firebaseConfig = {
   apiKey: "AIzaSyBY7EFdQse7HWFFA504j9k_UMY9y9oWSrM",
   authDomain: "journal-5a5c3.firebaseapp.com",
   projectId: "journal-5a5c3",
-  storageBucket: "journal-5a5c3.firebasestorage.app",
-  messagingSenderId: "617448101718",
-  appId: "1:617448101718:web:2d5be55fffa49f65efa8f7"
 };
 
-
-// 🚀 INITIALIZE
+// INIT
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -27,13 +36,15 @@ window.signup = async function () {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  try {
-    await createUserWithEmailAndPassword(auth, email, password);
-    alert("Account created!");
-    window.location.href = "journal.html";
-  } catch (error) {
-    alert(error.message);
-  }
+  const userCred = await createUserWithEmailAndPassword(auth, email, password);
+
+  // CREATE USER IN DATABASE
+  await setDoc(doc(db, "users", userCred.user.uid), {
+    email: email,
+    paid: false
+  });
+
+  window.location.href = "journal.html";
 };
 
 
@@ -42,12 +53,9 @@ window.login = async function () {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    window.location.href = "journal.html";
-  } catch (error) {
-    alert(error.message);
-  }
+  await signInWithEmailAndPassword(auth, email, password);
+
+  window.location.href = "journal.html";
 };
 
 
@@ -58,33 +66,60 @@ window.logout = async function () {
 };
 
 
-// 📓 SAVE JOURNAL ENTRY
+// 🔒 CHECK IF USER PAID
+async function checkAccess(user) {
+  const docRef = doc(db, "users", user.uid);
+  const userDoc = await getDoc(docRef);
+
+  if (!userDoc.exists() || userDoc.data().paid === false) {
+    alert("Pay R50 first!");
+    window.location.href = "pay.html";
+  }
+}
+
+
+// 📓 SAVE JOURNAL
 window.saveEntry = async function () {
   const entry = document.getElementById("entry").value;
 
-  try {
-    await addDoc(collection(db, "journals"), {
-      text: entry,
-      date: new Date()
-    });
+  await addDoc(collection(db, "journals"), {
+    text: entry,
+    date: new Date()
+  });
 
-    alert("Saved!");
-  } catch (error) {
-    alert(error.message);
-  }
+  alert("Saved!");
 };
 
 
-// ✨ DAILY AFFIRMATIONS
+// 💳 FAKE PAYMENT
+window.fakePayment = async function () {
+  const user = auth.currentUser;
+
+  await setDoc(doc(db, "users", user.uid), {
+    paid: true
+  }, { merge: true });
+
+  alert("Payment done!");
+  window.location.href = "journal.html";
+};
+
+
+// ✨ AFFIRMATIONS
 const affirmations = [
   "I am enough ❤️",
   "I believe in myself ✨",
-  "Today is a fresh start 🌅",
-  "I am growing every day 🌱"
+  "Today is a fresh start 🌅"
 ];
 
-const affEl = document.getElementById("affirmation");
-if (affEl) {
-  affEl.innerText =
-    affirmations[Math.floor(Math.random() * affirmations.length)];
+const aff = document.getElementById("affirmation");
+if (aff) {
+  aff.innerText = affirmations[Math.floor(Math.random() * affirmations.length)];
 }
+
+
+// 🔥 RUN CHECK WHEN USER OPENS JOURNAL
+onAuthStateChanged(auth, (user) => {
+  if (user && window.location.pathname.includes("journal.html")) {
+    checkAccess(user);
+  }
+});
