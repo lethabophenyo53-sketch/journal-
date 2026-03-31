@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Glow Journal</title>
+  <title>Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -9,46 +9,46 @@
 
 <div class="book">
 
- <div class="page">
-  <div class="card">
-    <h2>✨ Affirmation of the Day</h2>
-    <div id="affirmation"></div>
-    <textarea placeholder="How does this make you feel?"></textarea>
+  <!-- PAGE 1 -->
+  <div class="page">
+    <div class="card">
+      <h2>✨ Affirmation of the Day</h2>
+      <div id="affirmation"></div>
+      <textarea id="affNote" placeholder="How does this feel to you?"></textarea>
+    </div>
   </div>
+
+  <!-- PAGE 2 -->
+  <div class="page">
+    <div class="card">
+      <h2>📖 Dear Diary</h2>
+      <textarea id="diary" placeholder="Today I felt..."></textarea>
+    </div>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page">
+    <div class="card">
+      <h2>💭 Free Writing</h2>
+      <textarea id="free" placeholder="Write anything..."></textarea>
+    </div>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="page">
+    <div class="card">
+      <h2>🌿 Glow Up Check</h2>
+
+      <label><input type="checkbox"> Drink Water 💧</label>
+      <label><input type="checkbox"> Exercise 🏃‍♀️</label>
+      <label><input type="checkbox"> Eat Healthy 🥗</label>
+      <label><input type="checkbox"> Self-care 💆‍♀️</label>
+
+    </div>
+  </div>
+
 </div>
 
- <div class="page">
-  <div class="card">
-    <h2>📖 Dear Diary</h2>
-    <textarea></textarea>
-  </div>
-</div>
-
-What happened...
-
-What I learned...
-
-Grateful for...</textarea>
-  </div>
-
- <div class="page">
-  <div class="card">
-    <h2>💭 Innter Thoughts </h2>
-    <textarea></textarea>
-  </div>
-</div>
-
- <div class="page">
-  <div class="card">
-    <h2>🌿 Glow Up Check</h2>
-
-    <label><input type="checkbox"> Water 💧</label><br>
-    <label><input type="checkbox"> Exercise 🏃‍♀️</label><br>
-    <label><input type="checkbox"> Self-care 💆‍♀️</label><br>
-    <label><input type="checkbox"> Positive mindset 💖</label><br>
-
-  </div>
-</div>
 <script src="app.js"></script>
 </body>
 </html>
