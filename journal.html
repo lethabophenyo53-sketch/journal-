@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Journal</title>
+  <title>Daily Growth Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
-    <h1>🌸 Daily Journal</h1>
+    <h1>🌸 Daily Growth Journal</h1>
 
-    <p id="affirmation"></p>
+    <p id="welcome"></p>
+    <p id="affirmation" class="affirmation"></p>
 
-    <textarea id="entry" placeholder="Write your thoughts..."></textarea>
+    <h3>How are you feeling today?</h3>
+    <div class="moods">
+      <button onclick="setMood('😊 Happy')">😊</button>
+      <button onclick="setMood('😔 Sad')">😔</button>
+      <button onclick="setMood('😡 Angry')">😡</button>
+      <button onclick="setMood('😌 Calm')">😌</button>
+      <button onclick="setMood('🤯 Stressed')">🤯</button>
+    </div>
 
-    <button onclick="saveEntry()">Save</button>
+    <p id="selectedMood"></p>
+
+    <textarea id="entry">
+Dear Diary...
+
+Today I feel:
+
+What happened today:
+
+One thing I learned:
+
+Grateful for:
+    </textarea>
+
+    <button onclick="saveEntry()">Save Entry</button>
     <button onclick="logout()">Logout</button>
 
-    <h3>Your Entries:</h3>
+    <h3>Your Journey 🌱</h3>
     <div id="entries"></div>
   </div>
 
