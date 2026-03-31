@@ -1,3 +1,4 @@
+/* 🌸 GLOBAL */
 body {
   margin: 0;
   font-family: Georgia, serif;
@@ -5,30 +6,42 @@ body {
   overflow: hidden;
 }
 
-/* LOGIN */
+/* 💖 LOGIN PAGE */
 .center {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 input {
   padding: 12px;
-  width: 220px;
+  width: 240px;
   border-radius: 12px;
   border: none;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 button {
-  padding: 10px 16px;
+  padding: 10px 18px;
   border-radius: 30px;
   border: none;
   background: #c084fc;
   color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
+
+button:hover {
+  background: #a855f7;
+  transform: scale(1.05);
+}
+
+/* 📖 BOOK CONTAINER */
 .book {
   height: 100vh;
   display: flex;
@@ -37,59 +50,94 @@ button {
   position: relative;
 }
 
-/* ALL pages sit on top of each other */
+/* 📄 PAGES (STACKED BOOK STYLE) */
 .page {
   position: absolute;
-  width: 80%;
-  max-width: 520px;
+  width: 85%;
+  max-width: 550px;
   height: 75vh;
 
   opacity: 0;
   transform: scale(0.95);
-  transition: 0.5s ease;
+  transition: all 0.6s ease;
+
   pointer-events: none;
 }
 
-/* ONLY active page shows */
+/* ACTIVE PAGE */
 .page.active {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
+  z-index: 10;
+}
 
-  /* CARD (CENTERED TEXT FIXED) */
+/* 📘 PAGE CARD (MAIN CONTENT BOX) */
 .card {
-  background: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.92);
   padding: 30px;
-  border-radius: 20px;
+  border-radius: 22px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 10px;
 }
 
-/* TEXTAREA */
+/* ✏️ TEXTAREA (JOURNAL SPACE) */
 textarea {
   width: 100%;
   height: 160px;
-  margin-top: 10px;
-  border-radius: 12px;
-  padding: 10px;
+  padding: 12px;
+
+  border-radius: 14px;
+  border: 1px solid #ddd;
+
+  resize: none;
+  font-family: Georgia, serif;
+
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* GLOW CHECK FIXED ALIGNMENT */
+/* 🧠 PAGE HEADINGS */
+h2 {
+  margin-bottom: 5px;
+  color: #6b21a8;
+}
+
+/* 🌿 PARAGRAPHS */
+p {
+  margin: 0;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* ✨ GLOW CHECK SECTION (FIXED ALIGNMENT) */
 .glow {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
+/* ✔ CHECKBOX LABELS */
+label {
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  gap: 10px;
   align-items: center;
 }
 
-/* NAV */
+/* 📌 NAVIGATION BUTTONS */
 .nav {
   position: fixed;
-  bottom: 20px;
+  bottom: 25px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -97,176 +145,13 @@ textarea {
 }
 
 .nav button {
-  font-size: 20px;
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-}
-⚙️ 4. app.js
-let currentPage = 0;
-
-function showPage() {
-  const pages = document.querySelectorAll(".page");
-
-  pages.forEach((p, i) => {
-    p.classList.remove("active");
-    if (i === currentPage) {
-      p.classList.add("active");
-    }
-  });
+  font-size: 20px;
 }
 
-function nextPage() {
-  const pages = document.querySelectorAll(".page");
-  if (currentPage < pages.length - 1) {
-    currentPage++;
-    showPage();
-  }
-}
-
-function prevPage() {
-  if (currentPage > 0) {
-    currentPage--;
-    showPage();
-  }
-}
-
-/* LOGIN */
-function signup() {
-  localStorage.setItem("email", email.value);
-  localStorage.setItem("password", password.value);
-  alert("Account created 💖");
-}
-
-function login() {
-  if (
-    email.value === localStorage.getItem("email") &&
-    password.value === localStorage.getItem("password")
-  ) {
-    window.location.href = "journal.html";
-  } else {
-    alert("Wrong login");
-  }
-}
-
-/* AFFIRMATION */
-function initJournal() {
-  const list = [
-    "You are becoming her.",
-    "You are safe even in silence.",
-    "Your healing is valid.",
-    "You are doing better than you think."
-  ];
-
-  document.getElementById("affirmation").innerText =
-    list[Math.floor(Math.random() * list.length)];
-}
-💎 WHAT I FIXED FOR YOU
-
-✔ everything centered (no more left-side mess)
-✔ glow check aligned properly
-✔ pages balanced + clean
-✔ storytelling added at beginning
-✔ empowerment + big sister tone added
-✔ affirmation + ending poem included
-✔ premium “book feel”
-✔ stable animation (no broken zoom)
-
-If you want next upgrade, I can make it:
-
-🔥 REAL page flip like physical book (drag animation)
-🔥 sound effects (paper flip)
-🔥 daily notifications system (morning message)
-🔥 AI journaling assistant inside it
-🔥 save entries per day (real app level)
-
-Just say:
-👉 “upgrade to app store level” 💎
-
-why cant I move to the next page 
-
-That issue usually happens for one simple reason: your JavaScript isn’t properly finding or updating the pages, or the .page elements are not being stacked correctly.
-
-I’m going to fix it cleanly for you so it 100% works.
-
-🚨 FIX (IMPORTANT)
-✔ Problem in your current setup
-
-Your pages are:
-
-all sitting on top of each other ❌
-but not properly hidden/stacked with index control
-so clicking next = nothing visible changes
-💎 HERE IS THE WORKING FIX
-
-Replace ONLY these parts:
-
-📁 ✅ FIXED style.css (IMPORTANT PART)
-
-Add/replace your page styling with this:
-
-.book {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-/* ALL pages sit on top of each other */
-.page {
-  position: absolute;
-  width: 80%;
-  max-width: 520px;
-  height: 75vh;
-
-  opacity: 0;
-  transform: scale(0.95);
-  transition: 0.5s ease;
-  pointer-events: none;
-}
-
-/* ONLY active page shows */
-.page.active {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-  z-index: 10;
-}
-📁 ✅ FIXED app.js (THIS IS THE MAIN BUG FIX)
-
-Replace your navigation code with this:
-
-let currentPage = 0;
-
-function getPages() {
-  return document.querySelectorAll(".page");
-}
-
-function showPage() {
-  const pages = getPages();
-
-  pages.forEach((page, index) => {
-    page.classList.remove("active");
-
-    if (index === currentPage) {
-      page.classList.add("active");
-    }
-  });
-}
-
-function nextPage() {
-  const pages = getPages();
-
-  if (currentPage < pages.length - 1) {
-    currentPage++;
-    showPage();
-  }
-}
-
-function prevPage() {
-  if (currentPage > 0) {
-    currentPage--;
-    showPage();
-  }
+/* 🌸 SMALL BEAUTY TOUCH */
+.card b {
+  color: #a855f7;
 }
