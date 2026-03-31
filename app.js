@@ -1,111 +1,105 @@
+let pageIndex = 0;
 let currentMood = "";
 
-// LOGIN SYSTEM
-function signup() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+// ===== PAGES =====
+function renderPage() {
+  const page = document.getElementById("page");
 
-  localStorage.setItem("userEmail", email);
-  localStorage.setItem("userPassword", password);
+  const affirmations = [
+    "You are the main character 💖",
+    "Everything is working out for you ✨",
+    "You deserve soft love 🌸"
+  ];
 
-  alert("Account created 💖");
+  const affirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+
+  const pages = [
+
+    // 🌸 PAGE 1: AFFIRMATION
+    `
+    <div>
+      <h2>✨ Affirmation of the Day</h2>
+      <p class="bigAffirmation">${affirmation}</p>
+      <textarea id="affNote" placeholder="How does this make you feel?"></textarea>
+    </div>
+    `,
+
+    // 🌿 PAGE 2: GUIDED JOURNAL
+    `
+    <div>
+      <h2>🌱 Tell me about your day</h2>
+      <textarea id="guidedEntry">
+Today I felt...
+
+What happened today...
+
+What I learned...
+
+Grateful for...
+      </textarea>
+    </div>
+    `,
+
+    // 💭 PAGE 3: FREE WRITE
+    `
+    <div>
+      <h2>💭 Your Safe Space</h2>
+      <textarea id="freeWrite" placeholder="Write anything... no rules 💖"></textarea>
+    </div>
+    `,
+
+    // ✨ PAGE 4: GLOW UP CHECKLIST
+    `
+    <div>
+      <h2>✨ Glow Up Check</h2>
+      <p><input type="checkbox"> Drank water 💧</p>
+      <p><input type="checkbox"> Exercised 🏃‍♀️</p>
+      <p><input type="checkbox"> Took care of yourself 💆‍♀️</p>
+      <p><input type="checkbox"> Positive mindset 💖</p>
+    </div>
+    `
+  ];
+
+  page.innerHTML = pages[pageIndex];
 }
 
-function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+// ===== NAVIGATION =====
+function nextPage() {
+  pageIndex = (pageIndex + 1) % 4;
+  renderPage();
+}
 
-  if (
-    email === localStorage.getItem("userEmail") &&
-    password === localStorage.getItem("userPassword")
-  ) {
-    window.location.href = "journal.html";
+function prevPage() {
+  pageIndex = (pageIndex - 1 + 4) % 4;
+  renderPage();
+}
+
+// ===== PRIVATE LOCK =====
+function checkLock() {
+  let password = localStorage.getItem("journalLock");
+
+  if (!password) {
+    let newPass = prompt("Create a journal password 🔒");
+    localStorage.setItem("journalLock", newPass);
   } else {
-    alert("Wrong details");
+    let input = prompt("Enter your journal password 🔐");
+    if (input !== password) {
+      alert("Wrong password!");
+      window.location.href = "index.html";
+    }
   }
 }
 
-// MOOD
-function setMood(mood) {
-  currentMood = mood;
-  document.getElementById("selectedMood").innerText = "Mood: " + mood;
+// ===== REMINDER =====
+function setReminder() {
+  setTimeout(() => {
+    alert("💖 Time to journal and check in with yourself");
+  }, 10000); // 10 seconds (demo)
 }
 
-// SAVE ENTRY
-function saveEntry() {
-  const text = document.getElementById("entry").value;
-
-  let entries = JSON.parse(localStorage.getItem("entries")) || [];
-
-  entries.push({
-    text,
-    mood: currentMood,
-    date: new Date().toLocaleDateString()
-  });
-
-  localStorage.setItem("entries", JSON.stringify(entries));
-
-  displayEntries();
-}
-
-// DISPLAY
-function displayEntries() {
-  let entries = JSON.parse(localStorage.getItem("entries")) || [];
-  let container = document.getElementById("entries");
-
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  entries.reverse().forEach(e => {
-    container.innerHTML += `
-      <div class="entry-card">
-        <p>${e.mood}</p>
-        <p>${e.text}</p>
-        <small>${e.date}</small>
-      </div>
-    `;
-  });
-}
-
-// LOGOUT
-function logout() {
-  window.location.href = "index.html";
-}
-
-// DAILY VIBE
+// ===== LOAD =====
 window.onload = function () {
-
-  const bigMessages = [
-    "You are the main character 💖",
-    "Today is your glow-up day ✨",
-    "Romanticize your life 🌸",
-    "Soft life. Soft growth 🌷"
-  ];
-
-  const affirmations = [
-    "You are doing amazing 💕",
-    "Keep going ✨",
-    "You matter 💖"
-  ];
-
-  const prompts = [
-    "What made you smile today?",
-    "What are you grateful for?",
-    "What did you learn today?"
-  ];
-
-  if (document.getElementById("bigMessage"))
-    document.getElementById("bigMessage").innerText =
-      bigMessages[Math.floor(Math.random() * bigMessages.length)];
-
-  if (document.getElementById("affirmation"))
-    document.getElementById("affirmation").innerText =
-      affirmations[Math.floor(Math.random() * affirmations.length)];
-
-  if (document.getElementById("prompt"))
-    document.getElementById("prompt").innerText =
-      prompts[Math.floor(Math.random() * prompts.length)];
-
-  displayEntries();
+  checkLock();
+  renderPage();
+  setReminder();
 };
