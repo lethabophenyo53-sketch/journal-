@@ -55,4 +55,28 @@ function initJournal() {
 
   document.getElementById("affirmation").innerText =
     list[Math.floor(Math.random() * list.length)];
+
+  function payNow() {
+  let handler = PaystackPop.setup({
+    key: "YOUR_PUBLIC_KEY_HERE", // from Paystack dashboard
+    email: localStorage.getItem("email"),
+    amount: 5000, // 50.00 ZAR (Paystack uses kobo-like format)
+    currency: "ZAR",
+
+    callback: function(response) {
+      alert("Payment successful 💖");
+
+      // unlock premium features
+      localStorage.setItem("premium", "true");
+
+      window.location.href = "journal.html";
+    },
+
+    onClose: function() {
+      alert("Payment cancelled");
+    }
+  });
+
+  handler.openIframe();
+}
 }
