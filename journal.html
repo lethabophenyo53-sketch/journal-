@@ -4,7 +4,13 @@
   <title>Glow Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
+  
+<script>
+if (localStorage.getItem("premium") !== "true") {
+  alert("You are not premium yet 💔");
+  window.location.href = "index.html";
+}
+</script>
 <body onload="initJournal()">
 
 <div class="book">
