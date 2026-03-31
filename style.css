@@ -116,22 +116,48 @@ p {
   line-height: 1.4;
 }
 
-/* ✨ GLOW CHECK SECTION (FIXED ALIGNMENT) */
+/* 🌿 GLOW CHECK SECTION (CLEAN + ALIGNED) */
 .glow {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  align-items: flex-start;
-  margin-top: 15px;
+  margin-top: 20px;
+  width: 100%;
+  align-items: center;
 }
 
-/* ✔ CHECKBOX LABELS */
+/* ✔ EACH CHECK ITEM (PREMIUM CARD STYLE) */
 label {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 14px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+
   font-size: 16px;
   color: #333;
-  display: flex;
-  gap: 10px;
-  align-items: center;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* HOVER EFFECT */
+label:hover {
+  transform: scale(1.02);
+  background: rgba(255, 240, 250, 0.9);
+}
+
+/* ✔ CHECKBOX ITSELF */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #c084fc;
+  cursor: pointer;
 }
 
 /* 📌 NAVIGATION BUTTONS */
