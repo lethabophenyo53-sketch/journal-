@@ -1,107 +1,146 @@
-let currentMood = "";
+// ===== FIREBASE CONFIG =====
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-// ===== MOOD =====
-function setMood(mood) {
-  currentMood = mood;
-  document.getElementById("selectedMood").innerText = "Mood: " + mood;
-}
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// ===== SAVE =====
-function saveEntry() {
+// 🔴 PASTE YOUR FIREBASE CONFIG HERE
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_ID",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// ===== AUTH =====
+window.signup = async function () {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    await createUserWithEmailAndPassword(auth, email, password);
+    alert("Account created!");
+  } catch (err) {
+    alert(err.message);
+  }
+};
+
+window.login = async function () {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    window.location.href = "journal.html";
+  } catch (err) {
+    alert(err.message);
+  }
+};
+
+window.logout = function () {
+  signOut(auth);
+  window.location.href = "index.html";
+};
+
+// ===== SAVE ENTRY (CLOUD) =====
+window.saveEntry = async function () {
   const text = document.getElementById("entry").value;
 
-  if (!text) return alert("Write something!");
-
-  let entries = JSON.parse(localStorage.getItem("entries")) || [];
-
-  entries.push({
+  await addDoc(collection(db, "entries"), {
     text,
-    mood: currentMood,
     date: new Date().toLocaleDateString()
   });
 
-  localStorage.setItem("entries", JSON.stringify(entries));
   document.getElementById("entry").value = "";
+  loadEntries();
+  updateStreak();
+};
 
-  displayEntries();
-  showMoodStats();
-}
-
-// ===== DISPLAY =====
-function displayEntries() {
-  let entries = JSON.parse(localStorage.getItem("entries")) || [];
-  let container = document.getElementById("entries");
+// ===== LOAD ENTRIES =====
+async function loadEntries() {
+  const querySnapshot = await getDocs(collection(db, "entries"));
+  const container = document.getElementById("entries");
 
   if (!container) return;
 
   container.innerHTML = "";
 
-  entries.slice().reverse().forEach((e, index) => {
+  querySnapshot.forEach((docSnap) => {
+    const data = docSnap.data();
+
     container.innerHTML += `
       <div class="entry-card">
-        <p><strong>${e.date}</strong> ${e.mood || ""}</p>
-        <p>${e.text}</p>
-        <button onclick="deleteEntry(${index})">Delete</button>
+        <p>${data.text}</p>
+        <small>${data.date}</small>
       </div>
     `;
   });
 }
 
-// ===== DELETE =====
-function deleteEntry(index) {
-  let entries = JSON.parse(localStorage.getItem("entries")) || [];
-  entries.splice(entries.length - 1 - index, 1);
-  localStorage.setItem("entries", JSON.stringify(entries));
-  displayEntries();
-  showMoodStats();
-}
+// ===== STREAK SYSTEM =====
+function updateStreak() {
+  let lastDate = localStorage.getItem("lastEntryDate");
+  let today = new Date().toDateString();
 
-// ===== MOOD STATS =====
-function showMoodStats() {
-  let entries = JSON.parse(localStorage.getItem("entries")) || [];
-  let stats = {};
+  let streak = parseInt(localStorage.getItem("streak")) || 0;
 
-  entries.forEach(e => {
-    if (!e.mood) return;
-    stats[e.mood] = (stats[e.mood] || 0) + 1;
-  });
-
-  let output = "";
-  for (let mood in stats) {
-    output += `<p>${mood}: ${stats[mood]}</p>`;
+  if (lastDate !== today) {
+    streak++;
+    localStorage.setItem("streak", streak);
+    localStorage.setItem("lastEntryDate", today);
   }
 
-  document.getElementById("moodStats").innerHTML = output;
+  document.getElementById("streak").innerText = "🔥 Streak: " + streak;
 }
 
-// ===== DARK MODE =====
-function toggleDarkMode() {
-  document.body.classList.toggle("dark");
-}
-
-// ===== DAILY EXPERIENCE =====
+// ===== LOAD PAGE =====
 window.onload = function () {
+  loadEntries();
+  
+  const bigMessages = [
+  "Today is YOUR glow-up day ✨",
+  "Romanticize your life today 💖",
+  "You are the main character 🌸",
+  "Soft life. Soft thoughts. Soft growth 🌷"
+];
+
+const msg = document.getElementById("bigMessage");
+if (msg) {
+  msg.innerText = bigMessages[Math.floor(Math.random() * bigMessages.length)];
+}
 
   const affirmations = [
-    "You are growing every day 🌱",
-    "You’ve made it this far 💖",
-    "Keep going, you're doing great ✨",
-    "Your feelings are valid 🌸"
+    "You’re building your future 🌱",
+    "Keep showing up 💖",
+    "Your growth matters ✨"
   ];
 
   const prompts = [
-    "What made you smile today?",
-    "What challenged you today?",
-    "What are you grateful for?",
-    "What did you learn today?"
+    "What made you proud today?",
+    "What did you overcome?",
+    "What are you grateful for?"
   ];
 
-  document.getElementById("affirmation").innerText =
-    affirmations[Math.floor(Math.random() * affirmations.length)];
+  const aff = document.getElementById("affirmation");
+  const pr = document.getElementById("prompt");
 
-  document.getElementById("prompt").innerText =
-    "Prompt: " + prompts[Math.floor(Math.random() * prompts.length)];
+  if (aff) aff.innerText = affirmations[Math.random() * affirmations.length | 0];
+  if (pr) pr.innerText = prompts[Math.random() * prompts.length | 0];
 
-  displayEntries();
-  showMoodStats();
+  updateStreak();
 };
