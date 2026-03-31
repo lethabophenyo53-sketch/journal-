@@ -4,21 +4,18 @@
   <title>Journal App</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <div class="container">
+    <h1>✨ My Journal</h1>
 
-<div class="container">
-  <h1>✨ My Journal</h1>
+    <input id="email" type="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
 
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="password" placeholder="Password">
+    <button onclick="signup()">Sign Up</button>
+    <button onclick="login()">Login</button>
+  </div>
 
-  <button onclick="signup()">Sign Up</button>
-  <button onclick="login()">Login</button>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-<script src="app.js"></script>
-
+  <script type="module" src="app.js"></script>
 </body>
 </html>
