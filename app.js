@@ -1,32 +1,9 @@
-// ===== SIGN UP =====
-function signup() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+let currentMood = "";
 
-  if (!email || !password) {
-    alert("Please fill all fields");
-    return;
-  }
-
-  localStorage.setItem("userEmail", email);
-  localStorage.setItem("userPassword", password);
-
-  alert("Account created successfully!");
-}
-
-// ===== LOGIN =====
-function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  const savedEmail = localStorage.getItem("userEmail");
-  const savedPassword = localStorage.getItem("userPassword");
-
-  if (email === savedEmail && password === savedPassword) {
-    window.location.href = "journal.html";
-  } else {
-    alert("Wrong email or password");
-  }
+// ===== SET MOOD =====
+function setMood(mood) {
+  currentMood = mood;
+  document.getElementById("selectedMood").innerText = "Mood: " + mood;
 }
 
 // ===== SAVE ENTRY =====
@@ -34,7 +11,7 @@ function saveEntry() {
   const entry = document.getElementById("entry").value;
 
   if (!entry) {
-    alert("Write something first");
+    alert("Write something first 💭");
     return;
   }
 
@@ -42,6 +19,7 @@ function saveEntry() {
 
   entries.push({
     text: entry,
+    mood: currentMood,
     date: new Date().toLocaleString()
   });
 
@@ -61,9 +39,10 @@ function displayEntries() {
 
   container.innerHTML = "";
 
-  entries.forEach(e => {
+  entries.reverse().forEach(e => {
     container.innerHTML += `
-      <div style="border-bottom:1px solid #ddd; margin:5px 0;">
+      <div style="margin-bottom:10px; padding:10px; border-radius:10px; background:#fafafa;">
+        <p><strong>${e.mood || ""}</strong></p>
         <p>${e.text}</p>
         <small>${e.date}</small>
       </div>
@@ -76,13 +55,22 @@ function logout() {
   window.location.href = "index.html";
 }
 
-// ===== AFFIRMATIONS + LOAD ENTRIES =====
+// ===== DAILY EXPERIENCE =====
 window.onload = function () {
+
+  // Welcome message
+  const welcome = document.getElementById("welcome");
+  if (welcome) {
+    welcome.innerText = "Welcome back 🌸 Today is your growth day.";
+  }
+
+  // Daily affirmations
   const affirmations = [
-    "You are doing amazing 🌸",
-    "Your thoughts matter ✨",
-    "Growth takes time 🌱",
-    "Be proud of yourself 💖"
+    "Today is a good day to grow 🌱",
+    "You are enough just as you are 💖",
+    "Your journey matters ✨",
+    "Small steps still move you forward 🌸",
+    "You are becoming your best self 💫"
   ];
 
   const random = affirmations[Math.floor(Math.random() * affirmations.length)];
