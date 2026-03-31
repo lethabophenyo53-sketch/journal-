@@ -19,48 +19,60 @@ function login() {
   ) {
     window.location.href = "journal.html";
   } else {
-    alert("Wrong login");
+    alert("Wrong details");
   }
 }
 
 // ===== JOURNAL INIT =====
 function initJournal() {
 
-  // Affirmations
   const affirmations = [
-    "You are the main character 💖",
-    "Everything is aligning for you ✨",
-    "You deserve peace and softness 🌸",
-    "You are growing beautifully 🌷"
+    "You are becoming your best self.",
+    "Peace is yours to keep.",
+    "You are safe, soft, and growing.",
+    "Everything is unfolding perfectly."
   ];
 
   document.getElementById("affirmation").innerText =
     affirmations[Math.floor(Math.random() * affirmations.length)];
 
-  // AUTO SAVE
   autoSave();
-
-  // REMINDER
-  setInterval(() => {
-    alert("💖 Hey… time to check in with yourself");
-  }, 30000);
+  reminder();
 }
 
 // ===== AUTO SAVE =====
 function autoSave() {
-  const fields = ["affNote", "diary", "free"];
-
-  fields.forEach(id => {
+  ["affNote", "diary", "free"].forEach(id => {
     const el = document.getElementById(id);
-
     if (!el) return;
 
-    // load saved
     el.value = localStorage.getItem(id) || el.value;
 
-    // save while typing
     el.addEventListener("input", () => {
       localStorage.setItem(id, el.value);
     });
   });
+}
+
+// ===== PREMIUM REMINDER =====
+function reminder() {
+  setInterval(() => {
+    const note = document.createElement("div");
+
+    note.innerText = "Take a breath… check in with yourself 💭";
+
+    note.style.position = "fixed";
+    note.style.bottom = "20px";
+    note.style.right = "20px";
+    note.style.padding = "14px 18px";
+    note.style.background = "rgba(124, 58, 237, 0.9)";
+    note.style.color = "white";
+    note.style.borderRadius = "14px";
+    note.style.boxShadow = "0 10px 30px rgba(0,0,0,0.2)";
+    note.style.fontSize = "14px";
+
+    document.body.appendChild(note);
+
+    setTimeout(() => note.remove(), 5000);
+  }, 30000);
 }
