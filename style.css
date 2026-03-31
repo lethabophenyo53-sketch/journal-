@@ -69,4 +69,8 @@ button {
   color: #ff4da6;
 }
   background: #fff;
+
+  #page {
+  transition: all 0.4s ease;
+}
 }
