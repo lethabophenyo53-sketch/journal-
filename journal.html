@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Growth Journal</title>
-  <h2 id="bigMessage"></h2>
+  <title>Glow Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
 
-    <h1>🌸 Growth Journal</h1>
+    <h1>🌸 Glow Journal</h1>
 
-    <button onclick="toggleDarkMode()">🌙 Toggle Mode</button>
+    <!-- 💖 IMAGE HERE -->
+    <img src="https://i.pinimg.com/564x/7f/4c/5c/7f4c5c1f3a4d3c9c3b6a8c7c8f9f9f9f.jpg" width="120" style="border-radius:20px;">
 
+    <h2 id="bigMessage"></h2>
     <p id="affirmation"></p>
     <p id="prompt"></p>
 
-    <h3>Today's Mood</h3>
+    <h3>How are you feeling?</h3>
     <div class="moods">
       <button onclick="setMood('😊')">😊</button>
       <button onclick="setMood('😔')">😔</button>
@@ -27,16 +28,23 @@
 
     <p id="selectedMood"></p>
 
-    <textarea id="entry" placeholder="Dear Diary..."></textarea>
+    <textarea id="entry">
+Dear Diary...
 
-    <button onclick="saveEntry()">Save</button>
+Today I feel:
+
+What happened today:
+
+One thing I learned:
+
+Grateful for:
+    </textarea>
+
+    <button onclick="saveEntry()">Save Entry</button>
     <button onclick="logout()">Logout</button>
 
-    <h3>📅 Your Entries</h3>
+    <h3>🌱 Your Journey</h3>
     <div id="entries"></div>
-
-    <h3>📊 Mood Summary</h3>
-    <div id="moodStats"></div>
 
   </div>
 
