@@ -1,36 +1,33 @@
 let currentMood = "";
 
-// ===== SET MOOD =====
+// ===== MOOD =====
 function setMood(mood) {
   currentMood = mood;
   document.getElementById("selectedMood").innerText = "Mood: " + mood;
 }
 
-// ===== SAVE ENTRY =====
+// ===== SAVE =====
 function saveEntry() {
-  const entry = document.getElementById("entry").value;
+  const text = document.getElementById("entry").value;
 
-  if (!entry) {
-    alert("Write something first 💭");
-    return;
-  }
+  if (!text) return alert("Write something!");
 
   let entries = JSON.parse(localStorage.getItem("entries")) || [];
 
   entries.push({
-    text: entry,
+    text,
     mood: currentMood,
-    date: new Date().toLocaleString()
+    date: new Date().toLocaleDateString()
   });
 
   localStorage.setItem("entries", JSON.stringify(entries));
-
   document.getElementById("entry").value = "";
 
   displayEntries();
+  showMoodStats();
 }
 
-// ===== DISPLAY ENTRIES =====
+// ===== DISPLAY =====
 function displayEntries() {
   let entries = JSON.parse(localStorage.getItem("entries")) || [];
   let container = document.getElementById("entries");
@@ -39,44 +36,72 @@ function displayEntries() {
 
   container.innerHTML = "";
 
-  entries.reverse().forEach(e => {
+  entries.slice().reverse().forEach((e, index) => {
     container.innerHTML += `
-      <div style="margin-bottom:10px; padding:10px; border-radius:10px; background:#fafafa;">
-        <p><strong>${e.mood || ""}</strong></p>
+      <div class="entry-card">
+        <p><strong>${e.date}</strong> ${e.mood || ""}</p>
         <p>${e.text}</p>
-        <small>${e.date}</small>
+        <button onclick="deleteEntry(${index})">Delete</button>
       </div>
     `;
   });
 }
 
-// ===== LOGOUT =====
-function logout() {
-  window.location.href = "index.html";
+// ===== DELETE =====
+function deleteEntry(index) {
+  let entries = JSON.parse(localStorage.getItem("entries")) || [];
+  entries.splice(entries.length - 1 - index, 1);
+  localStorage.setItem("entries", JSON.stringify(entries));
+  displayEntries();
+  showMoodStats();
+}
+
+// ===== MOOD STATS =====
+function showMoodStats() {
+  let entries = JSON.parse(localStorage.getItem("entries")) || [];
+  let stats = {};
+
+  entries.forEach(e => {
+    if (!e.mood) return;
+    stats[e.mood] = (stats[e.mood] || 0) + 1;
+  });
+
+  let output = "";
+  for (let mood in stats) {
+    output += `<p>${mood}: ${stats[mood]}</p>`;
+  }
+
+  document.getElementById("moodStats").innerHTML = output;
+}
+
+// ===== DARK MODE =====
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
 }
 
 // ===== DAILY EXPERIENCE =====
 window.onload = function () {
 
-  // Welcome message
-  const welcome = document.getElementById("welcome");
-  if (welcome) {
-    welcome.innerText = "Welcome back 🌸 Today is your growth day.";
-  }
-
-  // Daily affirmations
   const affirmations = [
-    "Today is a good day to grow 🌱",
-    "You are enough just as you are 💖",
-    "Your journey matters ✨",
-    "Small steps still move you forward 🌸",
-    "You are becoming your best self 💫"
+    "You are growing every day 🌱",
+    "You’ve made it this far 💖",
+    "Keep going, you're doing great ✨",
+    "Your feelings are valid 🌸"
   ];
 
-  const random = affirmations[Math.floor(Math.random() * affirmations.length)];
-  const aff = document.getElementById("affirmation");
+  const prompts = [
+    "What made you smile today?",
+    "What challenged you today?",
+    "What are you grateful for?",
+    "What did you learn today?"
+  ];
 
-  if (aff) aff.innerText = random;
+  document.getElementById("affirmation").innerText =
+    affirmations[Math.floor(Math.random() * affirmations.length)];
+
+  document.getElementById("prompt").innerText =
+    "Prompt: " + prompts[Math.floor(Math.random() * prompts.length)];
 
   displayEntries();
+  showMoodStats();
 };
