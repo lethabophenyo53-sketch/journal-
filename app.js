@@ -123,3 +123,30 @@ onAuthStateChanged(auth, (user) => {
     checkAccess(user);
   }
 });
+window.payWithPaystack = function () {
+  const user = auth.currentUser;
+
+  let handler = PaystackPop.setup({
+    key: "PUT_YOUR_PUBLIC_KEY_HERE", // 🔥 replace this
+    email: user.email,
+    amount: 5000, // 50 rand (Paystack uses cents)
+
+    callback: async function(response) {
+      // ✅ Payment successful
+
+      await setDoc(doc(db, "users", user.uid), {
+        paid: true
+      }, { merge: true });
+
+      alert("Payment successful 🎉");
+
+      window.location.href = "journal.html";
+    },
+
+    onClose: function() {
+      alert("Payment cancelled");
+    }
+  });
+
+  handler.openIframe();
+};
