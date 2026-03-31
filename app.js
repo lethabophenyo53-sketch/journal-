@@ -1,5 +1,6 @@
 let currentPage = 0;
 
+/* ---------------- PAGES ---------------- */
 function showPage() {
   const pages = document.querySelectorAll(".page");
 
@@ -26,47 +27,61 @@ function prevPage() {
   }
 }
 
-/* LOGIN */
+/* ---------------- SIGN UP ---------------- */
 function signup() {
-  localStorage.setItem("email", email.value);
-  localStorage.setItem("password", password.value);
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  localStorage.setItem("email", email);
+  localStorage.setItem("password", password);
+
   alert("Account created 💖");
 }
 
+/* ---------------- LOGIN ---------------- */
 function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
   if (
-    email.value === localStorage.getItem("email") &&
-    password.value === localStorage.getItem("password")
+    email === localStorage.getItem("email") &&
+    password === localStorage.getItem("password")
   ) {
     window.location.href = "journal.html";
   } else {
-    alert("Wrong login");
+    alert("Wrong login ❌");
   }
 }
 
-/* AFFIRMATION */
+/* ---------------- AFFIRMATION ---------------- */
 function initJournal() {
   const list = [
-    "You are becoming her.",
-    "You are safe even in silence.",
-    "Your healing is valid.",
-    "You are doing better than you think."
+    "You are becoming her 💖",
+    "You are safe even in silence 🌸",
+    "Your healing is valid 💕",
+    "You are doing better than you think ✨"
   ];
 
-  document.getElementById("affirmation").innerText =
-    list[Math.floor(Math.random() * list.length)];
+  const el = document.getElementById("affirmation");
 
-  function payNow() {
+  if (el) {
+    el.innerText = list[Math.floor(Math.random() * list.length)];
+  }
+}
+
+/* ---------------- PAYSTACK ---------------- */
+function payNow() {
+  let email = localStorage.getItem("email");
+
   let handler = PaystackPop.setup({
-    key: "YOUR_PUBLIC_KEY_HERE", // from Paystack dashboard
-    email: localStorage.getItem("email"),
-    amount: 5000, // 50.00 ZAR (Paystack uses kobo-like format)
+    key: "YOUR_PUBLIC_KEY_HERE",
+    email: email,
+    amount: 5000, // R50
     currency: "ZAR",
 
     callback: function(response) {
-      alert("Payment successful 💖");
+      alert("Payment successful 💎");
 
-      // unlock premium features
       localStorage.setItem("premium", "true");
 
       window.location.href = "journal.html";
@@ -78,5 +93,4 @@ function initJournal() {
   });
 
   handler.openIframe();
-}
 }
