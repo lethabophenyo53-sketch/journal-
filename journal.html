@@ -5,13 +5,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="initJournal()">
 
 <div class="book">
 
   <!-- 💎 COVER -->
   <div class="page active cover center">
-    <h1 class="mainTitle">That Giril Journal</h1>
+    <h1 class="mainTitle">That Girl Journal</h1>
     <p class="bottomText">Glow & Confidence ✨</p>
   </div>
 
@@ -29,15 +29,11 @@
   <!-- 🌸 STORY -->
   <div class="page center">
     <h2>🌸 A Real Story</h2>
+
     <p class="storyText">
       There was a girl who felt behind in life.<br>
-      She watched everyone move forward while she stayed stuck.<br><br>
-
-      But what she didn’t realise was…<br>
-      she wasn’t behind — she was building strength.<br><br>
-
-      And one day, everything she learned quietly<br>
-      became the reason she finally glowed.
+      She wasn’t behind — she was building strength.<br><br>
+      And one day… she glowed.
     </p>
 
     <div class="promptBox">
@@ -66,12 +62,12 @@
       <label><input type="checkbox"> Drink water 💧</label>
       <label><input type="checkbox"> Skin care 🧴</label>
       <label><input type="checkbox"> Rest 💤</label>
-      <label><input type="checkbox"> Move my body 🏃‍♀️</label>
+      <label><input type="checkbox"> Move body 🏃‍♀️</label>
       <label><input type="checkbox"> Positive thought 💖</label>
     </div>
   </div>
 
-  <!-- 📸 MEMORY -->
+  <!-- 📸 MEMORY (kept simple) -->
   <div class="page center">
     <h2>Your Memory 📸</h2>
 
@@ -100,6 +96,7 @@
   <!-- 🌙 CLOSING -->
   <div class="page center">
     <h2>Closing 🌙</h2>
+
     <p id="poem"></p>
 
     <div class="wordBox">
@@ -109,6 +106,7 @@
 
 </div>
 
+<!-- NAV -->
 <div class="nav">
   <button onclick="prevPage()">⬅</button>
   <button onclick="nextPage()">➡</button>
