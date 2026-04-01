@@ -27,25 +27,35 @@ function prevPage() {
 /* STORY */
 function initJournal() {
   const stories = [
-    "Even bad days are part of becoming who you're meant to be.",
-    "Healing is not linear. You are still growing.",
+    "Even on your hardest days, you are still growing.",
     "You are not behind. You are becoming.",
-    "Soft days, hard days — all are progress."
+    "Healing is slow, but it is happening.",
+    "Your story is still unfolding beautifully."
+  ];
+
+  const affirmations = [
+    "You are enough 💖",
+    "You are safe 🌸",
+    "You are becoming your best self ✨",
+    "You survived today 💕"
+  ];
+
+  const poems = [
+    "And even in silence, you were healing.",
+    "Soft heart, strong soul, growing daily.",
+    "You are not lost — you are unfolding.",
+    "Tomorrow is a new page for you."
   ];
 
   document.getElementById("story").innerText =
     stories[Math.floor(Math.random() * stories.length)];
 
-  const affirmations = [
-    "You are becoming her 💖",
-    "You are safe 🌸",
-    "You are enough ✨",
-    "You survived today 💕"
-  ];
-
   document.getElementById("affirmation").innerText =
     affirmations[Math.floor(Math.random() * affirmations.length)];
 
+  document.getElementById("poem").innerText =
+    poems[Math.floor(Math.random() * poems.length)];
+}
   const poems = [
     "And even on heavy days, you still grew.",
     "Soft girl, strong heart, healing soul.",
