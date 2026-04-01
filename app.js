@@ -1,4 +1,4 @@
-/* ---------------- PAGE SYSTEM ---------------- */
+/* PAGE SYSTEM */
 let currentPage = 0;
 
 function showPage() {
@@ -27,9 +27,8 @@ function prevPage() {
   }
 }
 
-/* ---------------- JOURNAL CONTENT ---------------- */
+/* JOURNAL CONTENT */
 function initJournal() {
-
   const affirmations = [
     "I am growing every day ✨",
     "I am enough 💖",
@@ -52,7 +51,31 @@ function initJournal() {
   }
 }
 
-/* ---------------- START APP ---------------- */
+/* AI VENT */
+function vent() {
+  const replies = [
+    "I hear you 💖",
+    "You are safe here 🌸",
+    "You’re doing your best ✨",
+    "Let it out, I’m here 💕"
+  ];
+
+  document.getElementById("aiReply").innerText =
+    replies[Math.floor(Math.random() * replies.length)];
+}
+
+/* IMAGE UPLOAD */
+document.addEventListener("change", function (e) {
+  if (e.target.id === "imageUpload") {
+    let reader = new FileReader();
+    reader.onload = function () {
+      document.getElementById("preview").src = reader.result;
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  }
+});
+
+/* START */
 document.addEventListener("DOMContentLoaded", () => {
   showPage();
   initJournal();
