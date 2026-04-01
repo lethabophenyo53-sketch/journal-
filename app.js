@@ -133,3 +133,4 @@ document.addEventListener("change", function (e) {
     reader.readAsDataURL(e.target.files[0]);
   }
 });
+<script src="app.js"></script>
