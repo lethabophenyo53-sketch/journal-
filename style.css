@@ -105,3 +105,32 @@ h2 {
   position: absolute;
   bottom: 20px;
 }
+
+
+
+.coverImg {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.welcomeBox {
+  background: #fff0f5;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.welcomeImg {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.wordBox {
+  margin-top: 20px;
+  padding: 10px;
+  background: #ffe4ec;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
