@@ -9,31 +9,34 @@
 
 <div class="book">
 
-  <!-- COVER HEADER -->
+  <!-- HEADER -->
   <div class="header">
     <h1>💖 Glow Journal</h1>
     <p>Your safe space to feel, heal & grow</p>
   </div>
 
-  <!-- PAGE CONTENT -->
   <div class="page active">
 
+    <!-- STORY -->
     <h2>🌸 Today’s Story</h2>
     <p id="story"></p>
 
     <hr>
 
+    <!-- FEELINGS -->
     <h2>💖 How are you feeling?</h2>
     <textarea class="journalBox" placeholder="Start writing your day here..."></textarea>
 
     <hr>
 
-    <h2>🧠 Vent Space (AI Listener)</h2>
+    <!-- VENT -->
+    <h2>🧠 Vent Space</h2>
     <textarea class="journalBox" id="ventBox" placeholder="Say anything..."></textarea>
     <button onclick="vent()">Release feelings</button>
 
     <hr>
 
+    <!-- GLOW UP -->
     <h2>🌱 Glow Up Checklist</h2>
     <label><input type="checkbox"> Drink water</label><br>
     <label><input type="checkbox"> Skincare</label><br>
@@ -43,20 +46,22 @@
 
     <hr>
 
-<h2>📖 Your Own Story</h2>
-<textarea class="journalBox" placeholder="Write your personal story here..."></textarea>
+    <!-- YOUR STORY -->
+    <h2>📖 Your Own Story</h2>
+    <textarea class="journalBox" placeholder="Write your personal story here..."></textarea>
 
-<button onclick="generateMotivation()">✨ Give me motivation</button>
-
-<p id="motivationBoost"></p>
+    <button onclick="generateMotivation()">✨ Give me motivation</button>
+    <p id="motivationBoost"></p>
 
     <hr>
 
+    <!-- AFFIRMATION -->
     <h2>✨ Affirmation</h2>
     <p id="affirmation"></p>
 
     <hr>
 
+    <!-- CLOSING -->
     <h2>🌙 Closing Message</h2>
     <p id="poem"></p>
 
