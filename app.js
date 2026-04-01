@@ -143,18 +143,17 @@ function vent() {
   let reply = "";
 
   if (input.includes("sad")) {
-    reply = "I’m really sorry you're feeling this way 💔 You’re not alone.";
+    reply = "I’m really sorry you're feeling this way 💔 You don’t have to go through it alone.";
   } else if (input.includes("stress")) {
-    reply = "Take a breath 🌸 You’re doing your best, and that’s enough.";
+    reply = "Take a breath 🌸 You’re allowed to pause.";
   } else if (input.includes("tired")) {
-    reply = "Rest is important. You deserve peace 💕";
+    reply = "Rest. You deserve softness too 💕";
   } else {
-    reply = "I hear you. Tell me more 💖";
+    reply = "I hear you. Keep going… I’m here 💖";
   }
 
   document.getElementById("aiReply").innerText = reply;
 }
-
 /* ---------------- MOTIVATION BOOST ---------------- */
 function generateMotivation() {
   const boosts = [
