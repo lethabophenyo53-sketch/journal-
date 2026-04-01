@@ -19,6 +19,14 @@ function nextPage() {
   }
 }
 
+
+// ================= COVER CONTROL =================
+
+function showLogin() {
+  document.getElementById("coverPage").classList.add("hidden");
+  document.getElementById("loginPage").classList.remove("hidden");
+}
+
 // ================= AUTH =================
 
 function login() {
@@ -36,6 +44,37 @@ function login() {
     window.location.href = "admin.html";
     return;
   }
+
+  if (user === "pay") {
+    window.location.href = "pay.html";
+    return;
+  }
+
+  localStorage.setItem("role", "user");
+  localStorage.setItem("name", user);
+
+  window.location.href = "journal.html";
+}
+
+// ================= PROTECT =================
+
+function protect() {
+  const role = localStorage.getItem("role");
+
+  if (!role) {
+    // only protect journal/admin/pay pages
+    return;
+  }
+}
+
+protect();
+
+// ================= LOGOUT =================
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "index.html";
+}
 
   if (user === "pay") {
     window.location.href = "pay.html";
