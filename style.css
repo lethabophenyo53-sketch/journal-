@@ -133,4 +133,44 @@ h2 {
   border-radius: 10px;
   text-align: center;
   font-weight: bold;
+
+  /* CENTER CONTENT (FIXES EMPTY SPACE ISSUE) */
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* FIX PAGE OVERLAP */
+.page {
+  left: 100%;
+  opacity: 0;
+}
+
+.page.active {
+  left: 0;
+  opacity: 1;
+  z-index: 2;
+}
+
+.page.prev {
+  left: -100%;
+  opacity: 0;
+}
+
+/* BETTER SPACING */
+.book {
+  width: 650px;
+  height: 720px;
+}
+
+/* TEXT CENTER */
+h2, p {
+  text-align: center;
+}
+
+/* JOURNAL BOX */
+.journalBox {
+  margin-top: 10px;
+}
 }
