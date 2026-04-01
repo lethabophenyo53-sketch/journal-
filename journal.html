@@ -9,72 +9,58 @@
 
 <div class="book">
 
-  <!-- HEADER -->
-  <div class="header">
-    <h1>💖 Glow Journal</h1>
-    <p>Your safe space to feel, heal & grow</p>
-  </div>
-
+  <!-- PAGE 1 -->
   <div class="page active">
-
-    <!-- STORY -->
     <h2>🌸 Today’s Story</h2>
     <p id="story"></p>
-
-    <hr>
-
-    <!-- FEELINGS -->
-    <h2>💖 How are you feeling?</h2>
-    <textarea class="journalBox" placeholder="Start writing your day here..."></textarea>
-
-    <hr>
-
-    <!-- VENT -->
-    <h2>🧠 Vent Space</h2>
-    <textarea class="journalBox" id="ventBox" placeholder="Say anything..."></textarea>
-    <button onclick="vent()">Release feelings</button>
-
-    <hr>
-
-    <!-- GLOW UP -->
-    <h2>🌱 Glow Up Checklist</h2>
-    <label><input type="checkbox"> Drink water</label><br>
-    <label><input type="checkbox"> Skincare</label><br>
-    <label><input type="checkbox"> Shower</label><br>
-    <label><input type="checkbox"> Eat well</label><br>
-    <label><input type="checkbox"> Rest</label>
-
-    <hr>
-
-    <!-- YOUR STORY -->
-    <h2>📖 Your Own Story</h2>
-    <textarea class="journalBox" placeholder="Write your personal story here..."></textarea>
-
-    <button onclick="generateMotivation()">✨ Give me motivation</button>
-    <p id="motivationBoost"></p>
-
-    <hr>
-
-    <!-- AFFIRMATION -->
-    <h2>✨ Affirmation</h2>
-    <p id="affirmation"></p>
-
-    <hr>
-
-    <!-- CLOSING -->
-    <h2>🌙 Closing Message</h2>
-    <p id="poem"></p>
-
   </div>
 
-</div>
+  <!-- PAGE 2 -->
+  <div class="page">
+    <h2>💖 How are you feeling?</h2>
+    <textarea class="journalBox" placeholder="Write your day..."></textarea>
+  </div>
 
-<div class="nav">
-  <button onclick="prevPage()">⬅</button>
-  <button onclick="nextPage()">➡</button>
+  <!-- PAGE 3 (AI THERAPIST) -->
+  <div class="page">
+    <h2>🧠 Vent to me</h2>
+    <textarea id="ventBox" class="journalBox" placeholder="Talk to me..."></textarea>
+    <button onclick="vent()">Send</button>
+
+    <div id="aiReply" class="aiBox"></div>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="page">
+    <h2>🌱 Glow Up</h2>
+    <label><input type="checkbox"> Drink water</label>
+    <label><input type="checkbox"> Skincare</label>
+    <label><input type="checkbox"> Shower</label>
+    <label><input type="checkbox"> Eat well</label>
+  </div>
+
+  <!-- PAGE 5 -->
+  <div class="page">
+    <h2>📖 Your Story</h2>
+    <textarea class="journalBox"></textarea>
+    <button onclick="generateMotivation()">✨ Motivate me</button>
+    <p id="motivationBoost"></p>
+  </div>
+
+  <!-- PAGE 6 -->
+  <div class="page">
+    <h2>✨ Affirmation</h2>
+    <p id="affirmation"></p>
+  </div>
+
+  <!-- PAGE 7 -->
+  <div class="page">
+    <h2>🌙 Closing Message</h2>
+    <p id="poem"></p>
+  </div>
+
 </div>
 
 <script src="app.js"></script>
-
 </body>
 </html>
