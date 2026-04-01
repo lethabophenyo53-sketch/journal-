@@ -1,6 +1,5 @@
 let currentPage = 0;
 
-/* ---------------- BOOK SYSTEM ---------------- */
 function showPage() {
   const pages = document.querySelectorAll(".page");
 
@@ -25,87 +24,52 @@ function prevPage() {
   }
 }
 
-/* ---------------- SIGNUP ---------------- */
-function signup() {
-  localStorage.setItem("email", document.getElementById("email").value);
-  localStorage.setItem("password", document.getElementById("password").value);
-
-  alert("Account created 💖");
-}
-
-/* ---------------- LOGIN + ADMIN ---------------- */
-function login() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  const savedEmail = localStorage.getItem("email");
-  const savedPassword = localStorage.getItem("password");
-
-  // 👑 ADMIN
-  if (email === "lethabophenyo53@gmail.com" && password === "1234") {
-    localStorage.setItem("premium", "true");
-    window.location.href = "journal.html";
-    return;
-  }
-
-  // NORMAL USER
-  if (email === savedEmail && password === savedPassword) {
-    window.location.href = "journal.html";
-  } else {
-    alert("Wrong login ❌");
-  }
-}
-
-/* ---------------- PAYSTACK ---------------- */
-function payNow() {
-  let email = localStorage.getItem("email");
-
-  let handler = PaystackPop.setup({
-    key: "YOUR_PUBLIC_KEY_HERE",
-    email: email,
-    amount: 5000,
-    currency: "ZAR",
-
-    callback: function () {
-      alert("Payment successful 💎");
-      localStorage.setItem("premium", "true");
-      window.location.href = "journal.html";
-    },
-
-    onClose: function () {
-      alert("Payment cancelled");
-    }
-  });
-
-  handler.openIframe();
-}
-
-/* ---------------- AFFIRMATIONS ---------------- */
+/* STORY */
 function initJournal() {
-  const list = [
-    "You are becoming her 💖",
-    "You are safe 🌸",
-    "Your feelings are valid 💕",
-    "You survived today ✨"
+  const stories = [
+    "Even bad days are part of becoming who you're meant to be.",
+    "Healing is not linear. You are still growing.",
+    "You are not behind. You are becoming.",
+    "Soft days, hard days — all are progress."
   ];
 
-  let el = document.getElementById("affirmation");
-  if (el) el.innerText = list[Math.floor(Math.random() * list.length)];
+  document.getElementById("story").innerText =
+    stories[Math.floor(Math.random() * stories.length)];
+
+  const affirmations = [
+    "You are becoming her 💖",
+    "You are safe 🌸",
+    "You are enough ✨",
+    "You survived today 💕"
+  ];
+
+  document.getElementById("affirmation").innerText =
+    affirmations[Math.floor(Math.random() * affirmations.length)];
+
+  const poems = [
+    "And even on heavy days, you still grew.",
+    "Soft girl, strong heart, healing soul.",
+    "Tomorrow is still yours to become.",
+    "You are not lost, you are unfolding."
+  ];
+
+  document.getElementById("poem").innerText =
+    poems[Math.floor(Math.random() * poems.length)];
 }
 
-/* ---------------- VENT AI ---------------- */
+/* VENT AI */
 function vent() {
   let replies = [
-    "I hear you 💔",
+    "I hear you. That sounds heavy 💔",
     "You are safe here 🌸",
-    "Let it all out",
-    "You are not alone"
+    "Let it out. You are not alone.",
+    "Your feelings are valid."
   ];
 
   alert(replies[Math.floor(Math.random() * replies.length)]);
 }
 
-/* ---------------- IMAGE UPLOAD ---------------- */
+/* IMAGE */
 document.addEventListener("change", function (e) {
   if (e.target.id === "imageUpload") {
     let reader = new FileReader();
