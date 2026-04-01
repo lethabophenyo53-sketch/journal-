@@ -79,6 +79,19 @@ function vent() {
   alert(replies[Math.floor(Math.random() * replies.length)]);
 }
 
+function generateMotivation() {
+  const boosts = [
+    "You are not behind — you are building your story at your own pace 💖",
+    "Everything you are going through is shaping a stronger version of you 🌱",
+    "Even if today is hard, you are still growing ✨",
+    "You are allowed to restart as many times as you need 💕",
+    "Your life is not falling apart — it's falling into place 🌸"
+  ];
+
+  document.getElementById("motivationBoost").innerText =
+    boosts[Math.floor(Math.random() * boosts.length)];
+}
+
 /* IMAGE */
 document.addEventListener("change", function (e) {
   if (e.target.id === "imageUpload") {
