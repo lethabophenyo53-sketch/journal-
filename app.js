@@ -26,6 +26,19 @@ function prevPage() {
   }
 }
 
+let startX = 0;
+
+document.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 50) nextPage(); // swipe left
+  if (endX - startX > 50) prevPage(); // swipe right
+});
+
 /* ---------------- SIGN UP ---------------- */
 function signup() {
   const email = document.getElementById("email").value;
@@ -126,14 +139,20 @@ function initJournal() {
 
 /* ---------------- VENT ---------------- */
 function vent() {
-  const replies = [
-    "I hear you 💔",
-    "You are safe here 🌸",
-    "Let it all out 💕",
-    "You are not alone ✨"
-  ];
+  let input = document.getElementById("ventBox").value.toLowerCase();
+  let reply = "";
 
-  alert(replies[Math.floor(Math.random() * replies.length)]);
+  if (input.includes("sad")) {
+    reply = "I’m really sorry you're feeling this way 💔 You’re not alone.";
+  } else if (input.includes("stress")) {
+    reply = "Take a breath 🌸 You’re doing your best, and that’s enough.";
+  } else if (input.includes("tired")) {
+    reply = "Rest is important. You deserve peace 💕";
+  } else {
+    reply = "I hear you. Tell me more 💖";
+  }
+
+  document.getElementById("aiReply").innerText = reply;
 }
 
 /* ---------------- MOTIVATION BOOST ---------------- */
