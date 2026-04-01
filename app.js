@@ -1,3 +1,4 @@
+/* ---------------- PAGE SYSTEM ---------------- */
 let currentPage = 0;
 
 function showPage() {
@@ -24,18 +25,35 @@ function prevPage() {
     currentPage--;
     showPage();
   }
+}
+
+/* ---------------- JOURNAL CONTENT ---------------- */
+function initJournal() {
 
   const affirmations = [
-  "I am growing every day ✨",
-  "I am enough 💖",
-  "I am becoming my best self 🌸"
-];
+    "I am growing every day ✨",
+    "I am enough 💖",
+    "I am becoming my best self 🌸"
+  ];
 
-const words = ["Growth", "Healing", "Confidence", "Peace"];
+  const words = ["Growth", "Healing", "Confidence", "Peace"];
 
-document.getElementById("affirmation").innerText =
-  affirmations[Math.floor(Math.random() * affirmations.length)];
+  const affirmationEl = document.getElementById("affirmation");
+  const wordEl = document.getElementById("word");
 
-document.getElementById("word").innerText =
-  words[Math.floor(Math.random() * words.length)];
+  if (affirmationEl) {
+    affirmationEl.innerText =
+      affirmations[Math.floor(Math.random() * affirmations.length)];
+  }
+
+  if (wordEl) {
+    wordEl.innerText =
+      words[Math.floor(Math.random() * words.length)];
+  }
 }
+
+/* ---------------- START APP ---------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  showPage();
+  initJournal();
+});
