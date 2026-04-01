@@ -1,116 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Glow Journal</title>
+  <title>Luxury Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  
-<script>
-if (localStorage.getItem("premium") !== "true") {
-  alert("You are not premium yet 💔");
-  window.location.href = "index.html";
-}
-</script>
+
 <body onload="initJournal()">
 
 <div class="book">
 
-  <!-- PAGE 1: MOTIVATIONAL STORY -->
+  <!-- PAGE 1 -->
   <div class="page active">
-    <div class="card">
-      <h2>🌸 A Soft Beginning</h2>
-      <p>
-        There once was a girl who thought she had to be perfect every day.
-        But life taught her something softer — that healing is not linear.
-        Some days she shined, some days she broke, but she always became stronger.
-        And slowly, she learned: <b>it is okay to have bad days.</b>
-      </p>
-    </div>
+    <h2>🌸 How are you feeling today?</h2>
+
+    <button>😊 Happy</button>
+    <button>😔 Sad</button>
+    <button>😡 Angry</button>
+    <button>😶 Numb</button>
   </div>
 
-  <!-- PAGE 2: GUIDED FEELINGS -->
+  <!-- PAGE 2 -->
   <div class="page">
-    <div class="card">
-      <h2>🌤️ How are you feeling today?</h2>
-      <p>Tell me about your day. No pressure. Just honesty.</p>
-      <textarea></textarea>
-    </div>
+    <h2>💖 Reflection</h2>
+    <textarea placeholder="What happened today?"></textarea>
   </div>
 
-  <!-- PAGE 3: EMPOWERMENT QUESTION -->
+  <!-- PAGE 3 -->
   <div class="page">
-    <div class="card">
-      <h2>💖 Big Sister Check-in</h2>
-      <p>What hurt you today? What made you smile? Let it out.</p>
-      <textarea></textarea>
-    </div>
+    <h2>🤍 Vent Session</h2>
+    <textarea id="ventBox" placeholder="Say anything..."></textarea>
+    <button onclick="vent()">Release</button>
   </div>
 
-  <!-- PAGE 4: GOALS -->
+  <!-- PAGE 4 -->
   <div class="page">
-    <div class="card">
-      <h2>🎯 Your Goals</h2>
-      <p>What are you building for yourself right now?</p>
-      <textarea></textarea>
-    </div>
+    <h2>📸 Add Memory</h2>
+    <input type="file" id="imageUpload">
+    <img id="preview" width="150">
   </div>
 
-  <!-- PAGE 5: INNER THOUGHTS -->
+  <!-- PAGE 5 -->
   <div class="page">
-    <div class="card">
-      <h2>🌙 Inner Thoughts</h2>
-      <p>Write what you usually hide from the world.</p>
-      <textarea></textarea>
-    </div>
-  </div>
-
-  <!-- PAGE 6: GLOW CHECK (FIXED ALIGNMENT) -->
-  <div class="page">
-    <div class="card">
-      <h2>✨ Glow Check</h2>
-
-      <div class="glow">
-        <label><input type="checkbox"> Drink water 💧</label>
-        <label><input type="checkbox"> Eat something healthy 🥗</label>
-        <label><input type="checkbox"> Move your body 🏃‍♀️</label>
-        <label><input type="checkbox"> Take care of yourself 💆‍♀️</label>
-        <label><input type="checkbox"> Rest properly 😴</label>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- PAGE 7: AFFIRMATION -->
-  <div class="page">
-    <div class="card">
-      <h2>✨ Your Reminder</h2>
-      <div id="affirmation"></div>
-    </div>
-  </div>
-
-  <!-- PAGE 8: ENDING POEM -->
-  <div class="page">
-    <div class="card">
-      <h2>🌿 Closing Page</h2>
-      <p>
-        You did not fail today.  
-        You are learning, growing, becoming.  
-        Even your quiet days matter.  
-        Even your messy days matter.  
-        <br><br>
-        <b>I am the big sister you always needed.</b> 💖
-      </p>
-    </div>
+    <h2>✨ You are loved</h2>
+    <p id="affirmation"></p>
   </div>
 
 </div>
 
-<!-- NAVIGATION -->
-<div class="nav">
-  <button onclick="prevPage()">‹</button>
-  <button onclick="nextPage()">›</button>
-</div>
+<br>
+
+<button onclick="prevPage()">⬅</button>
+<button onclick="nextPage()">➡</button>
 
 <script src="app.js"></script>
+
 </body>
 </html>
