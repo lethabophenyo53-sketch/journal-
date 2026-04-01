@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Luxury Journal</title>
+  <title>Glow Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -9,48 +9,62 @@
 
 <div class="book">
 
-  <!-- PAGE 1 -->
+  <!-- PAGE 1 STORY -->
   <div class="page active">
-    <h2>🌸 How are you feeling today?</h2>
-
-    <button>😊 Happy</button>
-    <button>😔 Sad</button>
-    <button>😡 Angry</button>
-    <button>😶 Numb</button>
+    <h2>🌸 Today’s Story</h2>
+    <p id="story"></p>
   </div>
 
-  <!-- PAGE 2 -->
+  <!-- PAGE 2 FEELINGS -->
   <div class="page">
-    <h2>💖 Reflection</h2>
-    <textarea placeholder="What happened today?"></textarea>
+    <h2>💖 How are you feeling?</h2>
+    <textarea class="bigBox" placeholder="Tell me about your day..."></textarea>
   </div>
 
-  <!-- PAGE 3 -->
+  <!-- PAGE 3 AI VENT -->
   <div class="page">
-    <h2>🤍 Vent Session</h2>
-    <textarea id="ventBox" placeholder="Say anything..."></textarea>
+    <h2>🧠 Vent Space</h2>
+    <textarea class="bigBox" id="ventBox" placeholder="Say anything..."></textarea>
     <button onclick="vent()">Release</button>
   </div>
 
-  <!-- PAGE 4 -->
+  <!-- PAGE 4 GLOW UP -->
   <div class="page">
-    <h2>📸 Add Memory</h2>
-    <input type="file" id="imageUpload">
-    <img id="preview" width="150">
+    <h2>🌱 Glow Up Check</h2>
+
+    <label><input type="checkbox"> Drink water</label><br>
+    <label><input type="checkbox"> Skincare</label><br>
+    <label><input type="checkbox"> Shower</label><br>
+    <label><input type="checkbox"> Eat well</label><br>
+    <label><input type="checkbox"> Movement</label>
   </div>
 
-  <!-- PAGE 5 -->
+  <!-- PAGE 5 MEMORY -->
   <div class="page">
-    <h2>✨ You are loved</h2>
+    <h2>📸 Memory</h2>
+    <input type="file" id="imageUpload">
+    <img id="preview" width="100%">
+    <textarea class="bigBox" placeholder="Why this moment matters..."></textarea>
+  </div>
+
+  <!-- PAGE 6 AFFIRMATION -->
+  <div class="page">
+    <h2>✨ Affirmation</h2>
     <p id="affirmation"></p>
+  </div>
+
+  <!-- PAGE 7 POEM -->
+  <div class="page">
+    <h2>🌙 Closing Message</h2>
+    <p id="poem"></p>
   </div>
 
 </div>
 
-<br>
-
-<button onclick="prevPage()">⬅</button>
-<button onclick="nextPage()">➡</button>
+<div class="nav">
+  <button onclick="prevPage()">⬅</button>
+  <button onclick="nextPage()">➡</button>
+</div>
 
 <script src="app.js"></script>
 
