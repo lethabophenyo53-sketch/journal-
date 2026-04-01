@@ -9,54 +9,92 @@
 
 <div class="book">
 
-  <!-- PAGE 1 -->
+  <!-- 🌸 PAGE 1: STORY -->
   <div class="page active">
-    <h2>🌸 Today’s Story</h2>
-    <p id="story"></p>
+    <h2>🌸 A Story For You</h2>
+
+    <p class="storyText">
+      Annayia kept her dream hidden.  
+      Not because it wasn’t important —  
+      but because life made her feel like it wasn’t possible.  
+
+      Still… she held onto it quietly.  
+      And every day, even in silence — she grew.  
+
+      One day, her “secret dream” became her real life.
+    </p>
+
+    <div class="promptBox">
+      💭 What is a dream you’ve been keeping to yourself?<br>
+      What small step can you take this week?
+    </div>
+
+    <textarea class="journalBox"></textarea>
   </div>
 
-  <!-- PAGE 2 -->
+  <!-- 💖 PAGE 2: FEELINGS -->
   <div class="page">
-    <h2>💖 How are you feeling?</h2>
-    <textarea class="journalBox" placeholder="Write your day..."></textarea>
+    <h2>💖 How did today feel?</h2>
+
+    <div class="promptBox">
+      ✨ What made you smile today?<br>
+      💔 What hurt you today?<br>
+      🌱 What did you learn?
+    </div>
+
+    <textarea class="journalBox"></textarea>
   </div>
 
-  <!-- PAGE 3 (AI THERAPIST) -->
+  <!-- 🧠 PAGE 3: AI THERAPIST -->
   <div class="page">
-    <h2>🧠 Vent to me</h2>
-    <textarea id="ventBox" class="journalBox" placeholder="Talk to me..."></textarea>
-    <button onclick="vent()">Send</button>
+    <h2>🧠 Talk to me</h2>
+
+    <textarea id="ventBox" class="journalBox" placeholder="Say anything..."></textarea>
+    <button onclick="vent()">Talk</button>
 
     <div id="aiReply" class="aiBox"></div>
   </div>
 
-  <!-- PAGE 4 -->
+  <!-- 🌱 PAGE 4: GLOW UP -->
   <div class="page">
-    <h2>🌱 Glow Up</h2>
-    <label><input type="checkbox"> Drink water</label>
-    <label><input type="checkbox"> Skincare</label>
-    <label><input type="checkbox"> Shower</label>
-    <label><input type="checkbox"> Eat well</label>
+    <h2>🌱 Glow Up Check</h2>
+
+    <div class="checklist">
+      <label><input type="checkbox"> Drank water 💧</label>
+      <label><input type="checkbox"> Took care of myself 🧴</label>
+      <label><input type="checkbox"> Ate properly 🍽</label>
+      <label><input type="checkbox"> Rested 💤</label>
+      <label><input type="checkbox"> Did something for me 💖</label>
+    </div>
   </div>
 
-  <!-- PAGE 5 -->
+  <!-- 📸 PAGE 5: MEMORIES -->
   <div class="page">
-    <h2>📖 Your Story</h2>
-    <textarea class="journalBox"></textarea>
-    <button onclick="generateMotivation()">✨ Motivate me</button>
-    <p id="motivationBoost"></p>
+    <h2>📸 Your Memory</h2>
+
+    <input type="file" id="imageUpload">
+    <img id="preview" class="previewImg">
+
+    <textarea class="journalBox" placeholder="Describe this moment..."></textarea>
   </div>
 
-  <!-- PAGE 6 -->
+  <!-- ✨ PAGE 6: AFFIRMATION -->
   <div class="page">
-    <h2>✨ Affirmation</h2>
-    <p id="affirmation"></p>
+    <h2>✨ Today’s Affirmation</h2>
+    <p id="affirmation" class="bigAffirmation"></p>
   </div>
 
-  <!-- PAGE 7 -->
+  <!-- 🌙 PAGE 7: CLOSING -->
   <div class="page">
-    <h2>🌙 Closing Message</h2>
-    <p id="poem"></p>
+    <h2>🌙 For You</h2>
+
+    <p id="poem" class="poemText"></p>
+
+    <div class="closingBox">
+      No matter what today looked like…  
+      you showed up.  
+      And that is enough 💖
+    </div>
   </div>
 
 </div>
