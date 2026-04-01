@@ -9,102 +9,95 @@
 
 <div class="book">
 
-  <!-- 🌸 PAGE 1: STORY -->
-  <div class="page active">
+  <!-- 💖 PAGE 1: COVER -->
+  <div class="page active cover">
+    <p class="smallTop">Glowelle</p>
+
+    <h1 class="mainTitle">
+      Glow & Confidence<br>Journal
+    </h1>
+
+    <p class="bottomText">
+      For Teens Who Want to Shine ✨
+    </p>
+  </div>
+
+  <!-- 🌸 PAGE 2: WELCOME -->
+  <div class="page">
+    <h2>Welcome 💖</h2>
+
+    <p class="welcomeText">
+      This is your safe space.  
+      A place where you can feel, grow, heal and become.  
+
+      You don’t need to be perfect here.  
+      You just need to be honest.  
+
+      Every page you write is a step closer  
+      to the person you are becoming ✨
+    </p>
+  </div>
+
+  <!-- 📖 PAGE 3: STORY -->
+  <div class="page">
     <h2>🌸 A Story For You</h2>
 
     <p class="storyText">
       Annayia kept her dream hidden.  
-      Not because it wasn’t important —  
-      but because life made her feel like it wasn’t possible.  
+      Not because it didn’t matter…  
+      but because life made it feel impossible.  
 
-      Still… she held onto it quietly.  
-      And every day, even in silence — she grew.  
+      Still, she held onto it quietly.  
 
-      One day, her “secret dream” became her real life.
+      And slowly… she became her dream.
     </p>
 
     <div class="promptBox">
-      💭 What is a dream you’ve been keeping to yourself?<br>
-      What small step can you take this week?
+      💭 What is a dream you haven’t shared yet?<br>
+      What small step can you take?
     </div>
 
     <textarea class="journalBox"></textarea>
   </div>
 
-  <!-- 💖 PAGE 2: FEELINGS -->
+  <!-- 💖 PAGE 4: DAILY -->
   <div class="page">
-    <h2>💖 How did today feel?</h2>
+    <h2>Daily Glow Check ✨</h2>
 
-    <div class="promptBox">
-      ✨ What made you smile today?<br>
-      💔 What hurt you today?<br>
-      🌱 What did you learn?
-    </div>
+    <label>💖 I feel:</label>
+    <textarea class="journalBox small"></textarea>
 
-    <textarea class="journalBox"></textarea>
+    <label>🌸 I am grateful for:</label>
+    <textarea class="journalBox small"></textarea>
+
+    <label>🌱 I focus on:</label>
+    <textarea class="journalBox small"></textarea>
+
+    <label>✨ Affirmation:</label>
+    <textarea class="journalBox small"></textarea>
   </div>
 
-  <!-- 🧠 PAGE 3: AI THERAPIST -->
+  <!-- 🌱 PAGE 5: ROUTINE -->
   <div class="page">
-    <h2>🧠 Talk to me</h2>
-
-    <textarea id="ventBox" class="journalBox" placeholder="Say anything..."></textarea>
-    <button onclick="vent()">Talk</button>
-
-    <div id="aiReply" class="aiBox"></div>
-  </div>
-
-  <!-- 🌱 PAGE 4: GLOW UP -->
-  <div class="page">
-    <h2>🌱 Glow Up Check</h2>
+    <h2>Glow Routine 🌱</h2>
 
     <div class="checklist">
-      <label><input type="checkbox"> Drank water 💧</label>
-      <label><input type="checkbox"> Took care of myself 🧴</label>
-      <label><input type="checkbox"> Ate properly 🍽</label>
-      <label><input type="checkbox"> Rested 💤</label>
-      <label><input type="checkbox"> Did something for me 💖</label>
-    </div>
-  </div>
-
-  <!-- 📸 PAGE 5: MEMORIES -->
-  <div class="page">
-    <h2>📸 Your Memory</h2>
-
-    <input type="file" id="imageUpload">
-    <img id="preview" class="previewImg">
-
-    <textarea class="journalBox" placeholder="Describe this moment..."></textarea>
-  </div>
-
-  <!-- ✨ PAGE 6: AFFIRMATION -->
-  <div class="page">
-    <h2>✨ Today’s Affirmation</h2>
-    <p id="affirmation" class="bigAffirmation"></p>
-  </div>
-
-  <!-- 🌙 PAGE 7: CLOSING -->
-  <div class="page">
-    <h2>🌙 For You</h2>
-
-    <p id="poem" class="poemText"></p>
-
-    <div class="closingBox">
-      No matter what today looked like…  
-      you showed up.  
-      And that is enough 💖
+      <label><input type="checkbox"> Drink water 💧</label>
+      <label><input type="checkbox"> Skin care 🧴</label>
+      <label><input type="checkbox"> Rest 💤</label>
+      <label><input type="checkbox"> Move my body 🏃‍♀️</label>
+      <label><input type="checkbox"> Positive thought 💖</label>
     </div>
   </div>
 
 </div>
 
-<!-- NAV BUTTONS (FIXED OUTSIDE BOOK) -->
-<div class="nav-buttons">
-  <button onclick="prevPage()" class="nav-btn">←</button>
-  <button onclick="nextPage()" class="nav-btn">→</button>
+<div class="nav">
+  <button onclick="prevPage()">⬅</button>
+  <button onclick="nextPage()">➡</button>
 </div>
 
 <script src="app.js"></script>
+
 </body>
 </html>
