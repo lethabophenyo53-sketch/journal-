@@ -9,58 +9,57 @@
 
 <div class="book">
 
-  <!-- 💖 PAGE 1: COVER -->
+  <!-- 💎 COVER -->
   <div class="page active cover">
+    <img src="https://i.pinimg.com/564x/ff/8c/6e/ff8c6eae4e98b8d6f91c8c9dba4b8b32.jpg" class="coverImg">
+
     <p class="smallTop">Glowelle</p>
-
-    <h1 class="mainTitle">
-      Glow & Confidence<br>Journal
-    </h1>
-
-    <p class="bottomText">
-      For Teens Who Want to Shine ✨
-    </p>
+    <h1 class="mainTitle">Glow & Confidence Journal</h1>
+    <p class="bottomText">For Teens Who Want to Shine ✨</p>
   </div>
 
-  <!-- 🌸 PAGE 2: WELCOME -->
+  <!-- 💖 WELCOME -->
   <div class="page">
     <h2>Welcome 💖</h2>
 
-    <p class="welcomeText">
-      This is your safe space.  
-      A place where you can feel, grow, heal and become.  
+    <div class="welcomeBox">
+      <p>
+        This is not just a journal.  
+        This is your space.  
 
-      You don’t need to be perfect here.  
-      You just need to be honest.  
+        A place to be honest.  
+        A place to grow.  
+        A place to become HER.  
 
-      Every page you write is a step closer  
-      to the person you are becoming ✨
-    </p>
+        You don’t need to have everything figured out.  
+        You just need to start. ✨
+      </p>
+    </div>
+
+    <img src="https://i.pinimg.com/564x/7f/4c/5c/7f4c5c1f3a4d3c9c3b6a8c7c8f9f9f9f.jpg" class="welcomeImg">
   </div>
 
-  <!-- 📖 PAGE 3: STORY -->
+  <!-- 🌸 STORY -->
   <div class="page">
     <h2>🌸 A Story For You</h2>
 
     <p class="storyText">
       Annayia kept her dream hidden.  
-      Not because it didn’t matter…  
-      but because life made it feel impossible.  
+      Life told her it wasn’t possible.  
 
-      Still, she held onto it quietly.  
-
-      And slowly… she became her dream.
+      But she kept going quietly.  
+      And one day… she became everything she once feared she couldn’t be.
     </p>
 
     <div class="promptBox">
-      💭 What is a dream you haven’t shared yet?<br>
+      💭 What dream are you holding inside?<br>
       What small step can you take?
     </div>
 
     <textarea class="journalBox"></textarea>
   </div>
 
-  <!-- 💖 PAGE 4: DAILY -->
+  <!-- ✍🏽 DAILY -->
   <div class="page">
     <h2>Daily Glow Check ✨</h2>
 
@@ -77,7 +76,7 @@
     <textarea class="journalBox small"></textarea>
   </div>
 
-  <!-- 🌱 PAGE 5: ROUTINE -->
+  <!-- 🌱 ROUTINE -->
   <div class="page">
     <h2>Glow Routine 🌱</h2>
 
@@ -90,6 +89,48 @@
     </div>
   </div>
 
+  <!-- 📸 MEMORY -->
+  <div class="page">
+    <h2>📸 Your Memory</h2>
+
+    <input type="file" id="imageUpload">
+    <img id="preview" class="previewImg">
+
+    <textarea class="journalBox" placeholder="Write about this moment..."></textarea>
+  </div>
+
+  <!-- 🤖 AI -->
+  <div class="page">
+    <h2>🧠 Talk to me</h2>
+
+    <textarea id="ventBox" class="journalBox"></textarea>
+    <button onclick="vent()">Send</button>
+
+    <div id="aiReply" class="aiBox"></div>
+  </div>
+
+  <!-- ✨ AFFIRMATION -->
+  <div class="page">
+    <h2>✨ Affirmation</h2>
+    <p id="affirmation" class="bigAffirmation"></p>
+  </div>
+
+  <!-- 🌙 CLOSING -->
+  <div class="page">
+    <h2>🌙 Closing</h2>
+
+    <p id="poem" class="poemText"></p>
+
+    <div class="wordBox">
+      💫 Word of the Day: <span id="word"></span>
+    </div>
+
+    <div class="closingBox">
+      You showed up today.  
+      And that is enough 💖
+    </div>
+  </div>
+
 </div>
 
 <div class="nav">
@@ -98,6 +139,5 @@
 </div>
 
 <script src="app.js"></script>
-
 </body>
 </html>
