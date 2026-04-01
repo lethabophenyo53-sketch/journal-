@@ -9,54 +9,48 @@
 
 <div class="book">
 
-  <!-- PAGE 1 STORY -->
+  <!-- COVER HEADER -->
+  <div class="header">
+    <h1>💖 Glow Journal</h1>
+    <p>Your safe space to feel, heal & grow</p>
+  </div>
+
+  <!-- PAGE CONTENT -->
   <div class="page active">
+
     <h2>🌸 Today’s Story</h2>
     <p id="story"></p>
-  </div>
 
-  <!-- PAGE 2 FEELINGS -->
-  <div class="page">
+    <hr>
+
     <h2>💖 How are you feeling?</h2>
-    <textarea class="bigBox" placeholder="Tell me about your day..."></textarea>
-  </div>
+    <textarea class="journalBox" placeholder="Start writing your day here..."></textarea>
 
-  <!-- PAGE 3 AI VENT -->
-  <div class="page">
-    <h2>🧠 Vent Space</h2>
-    <textarea class="bigBox" id="ventBox" placeholder="Say anything..."></textarea>
-    <button onclick="vent()">Release</button>
-  </div>
+    <hr>
 
-  <!-- PAGE 4 GLOW UP -->
-  <div class="page">
-    <h2>🌱 Glow Up Check</h2>
+    <h2>🧠 Vent Space (AI Listener)</h2>
+    <textarea class="journalBox" id="ventBox" placeholder="Say anything..."></textarea>
+    <button onclick="vent()">Release feelings</button>
 
+    <hr>
+
+    <h2>🌱 Glow Up Checklist</h2>
     <label><input type="checkbox"> Drink water</label><br>
     <label><input type="checkbox"> Skincare</label><br>
     <label><input type="checkbox"> Shower</label><br>
     <label><input type="checkbox"> Eat well</label><br>
-    <label><input type="checkbox"> Movement</label>
-  </div>
+    <label><input type="checkbox"> Rest</label>
 
-  <!-- PAGE 5 MEMORY -->
-  <div class="page">
-    <h2>📸 Memory</h2>
-    <input type="file" id="imageUpload">
-    <img id="preview" width="100%">
-    <textarea class="bigBox" placeholder="Why this moment matters..."></textarea>
-  </div>
+    <hr>
 
-  <!-- PAGE 6 AFFIRMATION -->
-  <div class="page">
     <h2>✨ Affirmation</h2>
     <p id="affirmation"></p>
-  </div>
 
-  <!-- PAGE 7 POEM -->
-  <div class="page">
+    <hr>
+
     <h2>🌙 Closing Message</h2>
     <p id="poem"></p>
+
   </div>
 
 </div>
