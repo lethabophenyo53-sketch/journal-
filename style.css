@@ -197,3 +197,25 @@ body {
 .logoutBtn:hover {
   background: #e63e5c;
 }
+
+.cover {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffe4ec, #e6f0ff);
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.loginBox {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
