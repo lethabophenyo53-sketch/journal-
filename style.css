@@ -21,6 +21,48 @@ body {
   height: 100%;
   position: absolute;
   top: 0;
+
+  .loginBody {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffe4ec, #e6f0ff);
+  font-family: Arial;
+}
+
+.loginBox {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  width: 300px;
+}
+
+.loginBox input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.loginBox button {
+  width: 100%;
+  padding: 10px;
+  background: #ff69b4;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
   left: 100%;
   opacity: 0;
   transition: all 0.6s ease;
