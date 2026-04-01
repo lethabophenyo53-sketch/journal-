@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Glow Journal</title>
+  <title>Veloura Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,74 +10,62 @@
 <div class="book">
 
   <!-- 💎 COVER -->
-  <div class="page active cover">
-    <img src="https://i.pinimg.com/564x/ff/8c/6e/ff8c6eae4e98b8d6f91c8c9dba4b8b32.jpg" class="coverImg">
+  <div class="page active cover center">
+    <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df" class="coverImg">
 
-    <p class="smallTop">Glowelle</p>
-    <h1 class="mainTitle">Glow & Confidence Journal</h1>
-    <p class="bottomText">For Teens Who Want to Shine ✨</p>
+    <h1 class="mainTitle">Veloura Journal</h1>
+    <p class="bottomText">Glow & Confidence ✨</p>
   </div>
 
   <!-- 💖 WELCOME -->
-  <div class="page">
+  <div class="page center">
     <h2>Welcome 💖</h2>
 
     <div class="welcomeBox">
-      <p>
-        This is not just a journal.  
-        This is your space.  
+      You are safe here.  
 
-        A place to be honest.  
-        A place to grow.  
-        A place to become HER.  
+      This journal is your space to feel, grow, and become.  
+      No pressure. No judgment.  
 
-        You don’t need to have everything figured out.  
-        You just need to start. ✨
-      </p>
+      Just you… becoming her ✨
     </div>
-
-    <img src="https://i.pinimg.com/564x/7f/4c/5c/7f4c5c1f3a4d3c9c3b6a8c7c8f9f9f9f.jpg" class="welcomeImg">
   </div>
 
   <!-- 🌸 STORY -->
-  <div class="page">
-    <h2>🌸 A Story For You</h2>
+  <div class="page center">
+    <h2>🌸 A Real Story</h2>
 
     <p class="storyText">
-      Annayia kept her dream hidden.  
-      Life told her it wasn’t possible.  
+      There was a girl who felt behind in life.  
+      She watched everyone move forward while she stayed stuck.  
 
-      But she kept going quietly.  
-      And one day… she became everything she once feared she couldn’t be.
+      But what she didn’t realise was…  
+      she wasn’t behind — she was building strength.  
+
+      And one day, everything she learned quietly  
+      became the reason she finally glowed.
     </p>
 
     <div class="promptBox">
-      💭 What dream are you holding inside?<br>
-      What small step can you take?
+      💭 What are you going through right now?  
+      💭 What is it teaching you?
     </div>
 
     <textarea class="journalBox"></textarea>
   </div>
 
   <!-- ✍🏽 DAILY -->
-  <div class="page">
+  <div class="page center">
     <h2>Daily Glow Check ✨</h2>
 
-    <label>💖 I feel:</label>
-    <textarea class="journalBox small"></textarea>
-
-    <label>🌸 I am grateful for:</label>
-    <textarea class="journalBox small"></textarea>
-
-    <label>🌱 I focus on:</label>
-    <textarea class="journalBox small"></textarea>
-
-    <label>✨ Affirmation:</label>
-    <textarea class="journalBox small"></textarea>
+    <textarea class="journalBox small" placeholder="I feel..."></textarea>
+    <textarea class="journalBox small" placeholder="I am grateful for..."></textarea>
+    <textarea class="journalBox small" placeholder="I focus on..."></textarea>
+    <textarea class="journalBox small" placeholder="Affirmation..."></textarea>
   </div>
 
   <!-- 🌱 ROUTINE -->
-  <div class="page">
+  <div class="page center">
     <h2>Glow Routine 🌱</h2>
 
     <div class="checklist">
@@ -90,8 +78,8 @@
   </div>
 
   <!-- 📸 MEMORY -->
-  <div class="page">
-    <h2>📸 Your Memory</h2>
+  <div class="page center">
+    <h2>Your Memory 📸</h2>
 
     <input type="file" id="imageUpload">
     <img id="preview" class="previewImg">
@@ -100,8 +88,8 @@
   </div>
 
   <!-- 🤖 AI -->
-  <div class="page">
-    <h2>🧠 Talk to me</h2>
+  <div class="page center">
+    <h2>Talk to me 🧠</h2>
 
     <textarea id="ventBox" class="journalBox"></textarea>
     <button onclick="vent()">Send</button>
@@ -110,24 +98,19 @@
   </div>
 
   <!-- ✨ AFFIRMATION -->
-  <div class="page">
-    <h2>✨ Affirmation</h2>
+  <div class="page center">
+    <h2>Affirmation ✨</h2>
     <p id="affirmation" class="bigAffirmation"></p>
   </div>
 
   <!-- 🌙 CLOSING -->
-  <div class="page">
-    <h2>🌙 Closing</h2>
+  <div class="page center">
+    <h2>Closing 🌙</h2>
 
-    <p id="poem" class="poemText"></p>
+    <p id="poem"></p>
 
     <div class="wordBox">
-      💫 Word of the Day: <span id="word"></span>
-    </div>
-
-    <div class="closingBox">
-      You showed up today.  
-      And that is enough 💖
+      Word of the Day: <span id="word"></span>
     </div>
   </div>
 
