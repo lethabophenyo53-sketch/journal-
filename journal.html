@@ -5,28 +5,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="initJournal()">
+<body>
 
 <div class="book">
 
-  <!-- 💎 COVER -->
-  <div class="page active cover center">
+  <!-- COVER -->
+  <div class="page active center">
     <h1 class="mainTitle">That Girl Journal</h1>
     <p class="bottomText">Glow & Confidence ✨</p>
   </div>
 
-  <!-- 💖 WELCOME -->
+  <!-- WELCOME -->
   <div class="page center">
     <h2>Welcome 💖</h2>
     <div class="welcomeBox">
       You are safe here.<br><br>
-      This journal is your space to feel, grow, and become.<br>
-      No pressure. No judgment.<br><br>
+      This journal is your space to feel, grow, and become.<br><br>
       Just you… becoming her ✨
     </div>
   </div>
 
-  <!-- 🌸 STORY -->
+  <!-- STORY -->
   <div class="page center">
     <h2>🌸 A Real Story</h2>
 
@@ -36,25 +35,19 @@
       And one day… she glowed.
     </p>
 
-    <div class="promptBox">
-      💭 What are you going through right now?<br>
-      💭 What is it teaching you?
-    </div>
-
     <textarea class="journalBox"></textarea>
   </div>
 
-  <!-- ✍🏽 DAILY -->
+  <!-- DAILY -->
   <div class="page center">
-    <h2>Daily Glow Check ✨</h2>
+    <h2>Daily Glow ✨</h2>
 
     <textarea class="journalBox small" placeholder="I feel..."></textarea>
     <textarea class="journalBox small" placeholder="I am grateful for..."></textarea>
     <textarea class="journalBox small" placeholder="I focus on..."></textarea>
-    <textarea class="journalBox small" placeholder="Affirmation..."></textarea>
   </div>
 
-  <!-- 🌱 ROUTINE -->
+  <!-- ROUTINE -->
   <div class="page center">
     <h2>Glow Routine 🌱</h2>
 
@@ -63,11 +56,10 @@
       <label><input type="checkbox"> Skin care 🧴</label>
       <label><input type="checkbox"> Rest 💤</label>
       <label><input type="checkbox"> Move body 🏃‍♀️</label>
-      <label><input type="checkbox"> Positive thought 💖</label>
     </div>
   </div>
 
-  <!-- 📸 MEMORY (kept simple) -->
+  <!-- MEMORY -->
   <div class="page center">
     <h2>Your Memory 📸</h2>
 
@@ -77,7 +69,7 @@
     <textarea class="journalBox" placeholder="Write about this moment..."></textarea>
   </div>
 
-  <!-- 🤖 AI -->
+  <!-- AI -->
   <div class="page center">
     <h2>Talk to me 🧠</h2>
 
@@ -87,20 +79,20 @@
     <div id="aiReply" class="aiBox"></div>
   </div>
 
-  <!-- ✨ AFFIRMATION -->
+  <!-- AFFIRMATION -->
   <div class="page center">
     <h2>Affirmation ✨</h2>
     <p id="affirmation" class="bigAffirmation"></p>
   </div>
 
-  <!-- 🌙 CLOSING -->
+  <!-- CLOSING -->
   <div class="page center">
     <h2>Closing 🌙</h2>
 
     <p id="poem"></p>
 
     <div class="wordBox">
-      Word of the Day: <span id="word"></span>
+      Word: <span id="word"></span>
     </div>
   </div>
 
