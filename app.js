@@ -19,10 +19,49 @@ function nextPage() {
   }
 }
 
-function logout() {
-  localStorage.removeItem("role");
-  localStorage.removeItem("name");
+// ================= AUTH =================
 
+function login() {
+  const user = document.getElementById("username").value.trim();
+  const pass = document.getElementById("password").value.trim();
+  const error = document.getElementById("errorMsg");
+
+  if (!user || !pass) {
+    error.innerText = "Please fill all fields";
+    return;
+  }
+
+  if (user === "admin" && pass === "1234") {
+    localStorage.setItem("role", "admin");
+    window.location.href = "admin.html";
+    return;
+  }
+
+  if (user === "pay") {
+    window.location.href = "pay.html";
+    return;
+  }
+
+  localStorage.setItem("role", "user");
+  localStorage.setItem("name", user);
+
+  window.location.href = "journal.html";
+}
+
+// Protect pages
+function protect() {
+  const role = localStorage.getItem("role");
+  if (!role) {
+    window.location.href = "index.html";
+  }
+}
+
+protect();
+
+// ================= LOGOUT =================
+
+function logout() {
+  localStorage.clear();
   window.location.href = "index.html";
 }
 
