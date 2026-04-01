@@ -1,42 +1,77 @@
 let currentPage = 0;
 
-function showPage() {
-  const pages = document.querySelectorAll(".page");
+/* ---------------- SIGN UP ---------------- */
+function signup() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  pages.forEach((p, i) => {
-    p.classList.remove("active");
-    if (i === currentPage) p.classList.add("active");
+  localStorage.setItem("email", email);
+  localStorage.setItem("password", password);
+
+  alert("Account created 💖");
+}
+
+/* ---------------- LOGIN (WITH ADMIN) ---------------- */
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const savedEmail = localStorage.getItem("email");
+  const savedPassword = localStorage.getItem("password");
+
+  // 👑 ADMIN LOGIN (YOU)
+  if (email === "lethabophenyo53@gmail.com" && password === "1234") {
+    localStorage.setItem("premium", "true");
+    alert("Admin access granted 💎");
+    window.location.href = "journal.html";
+    return;
+  }
+
+  // 👤 NORMAL USER
+  if (email === savedEmail && password === savedPassword) {
+    window.location.href = "journal.html";
+  } else {
+    alert("Wrong login ❌");
+  }
+}
+
+/* ---------------- PAYSTACK ---------------- */
+function payNow() {
+  let email = localStorage.getItem("email");
+
+  let handler = PaystackPop.setup({
+    key: "YOUR_PUBLIC_KEY_HERE",
+    email: email,
+    amount: 5000, // R50
+    currency: "ZAR",
+
+    callback: function () {
+      alert("Payment successful 💎");
+      localStorage.setItem("premium", "true");
+      window.location.href = "journal.html";
+    },
+
+    onClose: function () {
+      alert("Payment cancelled");
+    }
   });
+
+  handler.openIframe();
 }
 
-function nextPage() {
-  const pages = document.querySelectorAll(".page");
-  if (currentPage < pages.length - 1) {
-    currentPage++;
-    showPage();
-  }
-}
-
-function prevPage() {
-  if (currentPage > 0) {
-    currentPage--;
-    showPage();
-  }
-}
-
-/* STORY */
+/* ---------------- JOURNAL INIT ---------------- */
 function initJournal() {
   const stories = [
     "Even on your hardest days, you are still growing.",
     "You are not behind. You are becoming.",
-    "Healing is slow, but it is happening.",
-    "Your story is still unfolding beautifully."
+    "Healing takes time, and that's okay.",
+    "Your story is still being written beautifully."
   ];
 
   const affirmations = [
     "You are enough 💖",
     "You are safe 🌸",
-    "You are becoming your best self ✨",
+    "You are becoming her ✨",
     "You survived today 💕"
   ];
 
@@ -44,55 +79,51 @@ function initJournal() {
     "And even in silence, you were healing.",
     "Soft heart, strong soul, growing daily.",
     "You are not lost — you are unfolding.",
-    "Tomorrow is a new page for you."
+    "Tomorrow is your new beginning."
   ];
 
-  document.getElementById("story").innerText =
-    stories[Math.floor(Math.random() * stories.length)];
+  if (document.getElementById("story")) {
+    document.getElementById("story").innerText =
+      stories[Math.floor(Math.random() * stories.length)];
+  }
 
-  document.getElementById("affirmation").innerText =
-    affirmations[Math.floor(Math.random() * affirmations.length)];
+  if (document.getElementById("affirmation")) {
+    document.getElementById("affirmation").innerText =
+      affirmations[Math.floor(Math.random() * affirmations.length)];
+  }
 
-  document.getElementById("poem").innerText =
-    poems[Math.floor(Math.random() * poems.length)];
-}
-  const poems = [
-    "And even on heavy days, you still grew.",
-    "Soft girl, strong heart, healing soul.",
-    "Tomorrow is still yours to become.",
-    "You are not lost, you are unfolding."
-  ];
-
-  document.getElementById("poem").innerText =
-    poems[Math.floor(Math.random() * poems.length)];
+  if (document.getElementById("poem")) {
+    document.getElementById("poem").innerText =
+      poems[Math.floor(Math.random() * poems.length)];
+  }
 }
 
-/* VENT AI */
+/* ---------------- VENT ---------------- */
 function vent() {
-  let replies = [
-    "I hear you. That sounds heavy 💔",
+  const replies = [
+    "I hear you 💔",
     "You are safe here 🌸",
-    "Let it out. You are not alone.",
-    "Your feelings are valid."
+    "Let it all out 💕",
+    "You are not alone ✨"
   ];
 
   alert(replies[Math.floor(Math.random() * replies.length)]);
 }
 
+/* ---------------- MOTIVATION BOOST ---------------- */
 function generateMotivation() {
   const boosts = [
-    "You are not behind — you are building your story at your own pace 💖",
-    "Everything you are going through is shaping a stronger version of you 🌱",
-    "Even if today is hard, you are still growing ✨",
-    "You are allowed to restart as many times as you need 💕",
-    "Your life is not falling apart — it's falling into place 🌸"
+    "You are growing every day 💖",
+    "You are stronger than you think 🌱",
+    "Your story matters ✨",
+    "You are becoming your best self 💕"
   ];
 
   document.getElementById("motivationBoost").innerText =
     boosts[Math.floor(Math.random() * boosts.length)];
 }
 
-/* IMAGE */
+/* ---------------- IMAGE UPLOAD ---------------- */
 document.addEventListener("change", function (e) {
   if (e.target.id === "imageUpload") {
     let reader = new FileReader();
@@ -102,4 +133,3 @@ document.addEventListener("change", function (e) {
     reader.readAsDataURL(e.target.files[0]);
   }
 });
-document.getElementById("poem").innerText = poems[random];
