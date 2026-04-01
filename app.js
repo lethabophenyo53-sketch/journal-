@@ -31,6 +31,30 @@ window.onload = function () {
   showPage();
 };
 
+window.onload = function () {
+  const affirmations = [
+    "You are enough 💖",
+    "You are safe 🌸",
+    "You are becoming her ✨",
+    "You survived today 💕"
+  ];
+
+  const poems = [
+    "And even in silence, you were healing.",
+    "Soft heart, strong soul, growing daily.",
+    "You are not lost — you are unfolding.",
+    "Tomorrow is your new beginning."
+  ];
+
+  document.getElementById("affirmation").innerText =
+    affirmations[Math.floor(Math.random() * affirmations.length)];
+
+  document.getElementById("poem").innerText =
+    poems[Math.floor(Math.random() * poems.length)];
+
+  initJournal(); // keeps your page system working
+};
+
 /* VENT AI */
 function vent() {
   let input = document.getElementById("ventBox").value.toLowerCase();
