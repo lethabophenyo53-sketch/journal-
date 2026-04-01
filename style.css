@@ -1,166 +1,55 @@
-/* 🌸 GLOBAL */
 body {
-  margin: 0;
-  font-family: Georgia, serif;
-  background: linear-gradient(120deg, #f8e6ff, #ffe9f3, #e9e6ff);
-  overflow: hidden;
-}
-
-/* 💖 LOGIN */
-.center {
-  height: 100vh;
+  font-family: Arial;
+  background: linear-gradient(135deg, #ffe6f0, #fff);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  height: 100vh;
 }
 
-input {
-  padding: 12px;
-  width: 240px;
-  border-radius: 12px;
-  border: none;
+/* LOGIN BOX */
+.container {
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-button {
-  padding: 10px 18px;
-  border-radius: 30px;
-  border: none;
-  background: #c084fc;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #a855f7;
-}
-
-/* 📖 BOOK CONTAINER */
+/* BOOK */
 .book {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 420px;
+  height: 550px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
   position: relative;
 }
 
-/* 📄 PAGES */
+/* PAGES */
 .page {
-  position: absolute;
-  width: 85%;
-  max-width: 550px;
-  height: 75vh;
-
-  opacity: 0;
-  transform: scale(0.95);
-  transition: 0.6s ease;
-
-  pointer-events: none;
-}
-
-/* ACTIVE PAGE */
-.page.active {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-  z-index: 10;
-}
-
-/* 📘 CARD */
-.card {
-  background: rgba(255, 255, 255, 0.92);
-  padding: 30px;
-  border-radius: 22px;
+  display: none;
+  padding: 20px;
   text-align: center;
-
-  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
 }
 
-/* 🧠 HEADINGS */
-h2 {
-  margin-bottom: 5px;
-  color: #6b21a8;
+.page.active {
+  display: block;
+  animation: flip 0.5s ease;
 }
 
-/* ✏️ TEXTAREA */
-textarea {
-  width: 100%;
-  height: 160px;
-  padding: 12px;
-
-  border-radius: 14px;
-  border: 1px solid #ddd;
-
-  resize: none;
+/* FLIP ANIMATION */
+@keyframes flip {
+  from { transform: rotateY(-20deg); opacity: 0; }
+  to { transform: rotateY(0); opacity: 1; }
 }
 
-/* 🌿 GLOW CHECK (FIXED PROPER ALIGNMENT) */
-.glow {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-  margin-top: 15px;
-}
-
-/* ✔ CHECKBOX LINE STYLE (PROFESSIONAL CLEAN LOOK) */
-label {
-  width: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  gap: 12px;
-  padding: 10px 14px;
-
-  background: rgba(255,255,255,0.85);
-  border-radius: 12px;
-
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-
-  font-size: 16px;
-}
-
-/* CHECKBOX */
-input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: #c084fc;
-}
-
-/* 📌 NAV BUTTONS (THIS FIXES YOUR “GONE BUTTON” ISSUE LOOK) */
-.nav {
-  position: fixed;
-  bottom: 25px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  z-index: 1000;
-}
-
-.nav button {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  font-size: 20px;
-  background: #c084fc;
+/* BUTTONS */
+button {
+  margin: 5px;
+  padding: 10px;
   border: none;
-  color: white;
-  cursor: pointer;
-}
-
-/* SMALL TEXT STYLE */
-p {
-  color: #444;
-  line-height: 1.4;
+  border-radius: 10px;
+  background: #ffb6c1;
 }
