@@ -117,6 +117,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
+  /* NAV CONTAINER */
 .nav-buttons {
   position: fixed;
   bottom: 20px;
@@ -124,8 +125,10 @@ body {
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
+  z-index: 999;
 }
 
+/* ARROW BUTTONS */
 .nav-btn {
   width: 50px;
   height: 50px;
@@ -143,4 +146,4 @@ body {
   background: #333;
   transform: scale(1.1);
 }
-}
+
