@@ -1,4 +1,3 @@
-/* PAGE SYSTEM */
 let currentPage = 0;
 
 function showPage() {
@@ -27,56 +26,56 @@ function prevPage() {
   }
 }
 
-/* JOURNAL CONTENT */
 function initJournal() {
   const affirmations = [
-    "I am growing every day ✨",
+    "I am becoming her ✨",
     "I am enough 💖",
-    "I am becoming my best self 🌸"
+    "I glow differently now 🌸",
+    "I trust my journey 🌱"
   ];
 
-  const words = ["Growth", "Healing", "Confidence", "Peace"];
+  const poems = [
+    "You are not behind, you are unfolding.",
+    "Soft heart, strong future.",
+    "You survived what once broke you."
+  ];
 
-  const affirmationEl = document.getElementById("affirmation");
-  const wordEl = document.getElementById("word");
+  const words = ["Glow", "Peace", "Healing", "Confidence"];
 
-  if (affirmationEl) {
-    affirmationEl.innerText =
-      affirmations[Math.floor(Math.random() * affirmations.length)];
-  }
+  const a = document.getElementById("affirmation");
+  const p = document.getElementById("poem");
+  const w = document.getElementById("word");
 
-  if (wordEl) {
-    wordEl.innerText =
-      words[Math.floor(Math.random() * words.length)];
-  }
+  if (a) a.innerText = random(affirmations);
+  if (p) p.innerText = random(poems);
+  if (w) w.innerText = random(words);
+
+  showPage();
 }
 
-/* AI VENT */
+function random(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
 function vent() {
   const replies = [
     "I hear you 💖",
     "You are safe here 🌸",
-    "You’re doing your best ✨",
-    "Let it out, I’m here 💕"
+    "Let it out, I’m listening ✨",
+    "You are not alone 💕"
   ];
 
-  document.getElementById("aiReply").innerText =
-    replies[Math.floor(Math.random() * replies.length)];
+  document.getElementById("aiReply").innerText = random(replies);
 }
 
-/* IMAGE UPLOAD */
 document.addEventListener("change", function (e) {
   if (e.target.id === "imageUpload") {
-    let reader = new FileReader();
-    reader.onload = function () {
+    const reader = new FileReader();
+    reader.onload = () => {
       document.getElementById("preview").src = reader.result;
     };
     reader.readAsDataURL(e.target.files[0]);
   }
 });
 
-/* START */
-document.addEventListener("DOMContentLoaded", () => {
-  showPage();
-  initJournal();
-});
+window.onload = initJournal;
