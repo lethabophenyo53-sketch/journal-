@@ -24,4 +24,18 @@ function prevPage() {
     currentPage--;
     showPage();
   }
+
+  const affirmations = [
+  "I am growing every day ✨",
+  "I am enough 💖",
+  "I am becoming my best self 🌸"
+];
+
+const words = ["Growth", "Healing", "Confidence", "Peace"];
+
+document.getElementById("affirmation").innerText =
+  affirmations[Math.floor(Math.random() * affirmations.length)];
+
+document.getElementById("word").innerText =
+  words[Math.floor(Math.random() * words.length)];
 }
