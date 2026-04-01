@@ -19,6 +19,13 @@ function nextPage() {
   }
 }
 
+function logout() {
+  localStorage.removeItem("role");
+  localStorage.removeItem("name");
+
+  window.location.href = "index.html";
+}
+
 function prevPage() {
   if (currentPage > 0) {
     currentPage--;
