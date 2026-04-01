@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   font-family: Arial;
   background: linear-gradient(135deg, #ffe6f0, #fff);
   display: flex;
@@ -7,48 +8,47 @@ body {
   height: 100vh;
 }
 
-/* LOGIN BOX */
-.container {
-  text-align: center;
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
 /* BOOK */
 .book {
-  width: 420px;
-  height: 550px;
+  width: 450px;
+  height: 600px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   overflow: hidden;
-  position: relative;
+  padding: 20px;
 }
 
-/* PAGES */
+/* PAGE */
 .page {
   display: none;
-  padding: 20px;
+  height: 100%;
   text-align: center;
+  padding: 20px;
 }
 
 .page.active {
   display: block;
-  animation: flip 0.5s ease;
 }
 
-/* FLIP ANIMATION */
-@keyframes flip {
-  from { transform: rotateY(-20deg); opacity: 0; }
-  to { transform: rotateY(0); opacity: 1; }
-}
-
-/* BUTTONS */
-button {
-  margin: 5px;
+/* BIG WRITING BOX */
+.bigBox {
+  width: 90%;
+  height: 150px;
+  margin-top: 10px;
+  font-size: 16px;
   padding: 10px;
+}
+
+/* NAV */
+.nav {
+  position: absolute;
+  bottom: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
   border: none;
   border-radius: 10px;
   background: #ffb6c1;
