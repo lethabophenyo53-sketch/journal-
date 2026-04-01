@@ -84,5 +84,10 @@ document.addEventListener("change", function (e) {
     reader.readAsDataURL(e.target.files[0]);
   }
 });
+const role = localStorage.getItem("role");
+
+if (!role) {
+  window.location.href = "index.html";
+}
 
 window.onload = initJournal;
