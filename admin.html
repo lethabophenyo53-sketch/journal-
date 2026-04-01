@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Admin Dashboard 👑</h1>
+
+<div class="adminBox">
+  <p>Welcome Admin</p>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+function logout() {
+  localStorage.clear();
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
