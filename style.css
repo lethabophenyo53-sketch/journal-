@@ -110,13 +110,6 @@ body {
   border-radius: 10px;
   text-align: center;
 
-  .journal-container {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: 80px;
-  font-family: Arial, sans-serif;
-}
-
   /* NAV CONTAINER */
 .nav-buttons {
   position: fixed;
