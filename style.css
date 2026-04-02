@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: Georgia;
-  background: #f9f6f7;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #ffe4ec, #fff0f5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,25 +10,29 @@ body {
 
 /* BOOK */
 .book {
-  width: 650px;
-  height: 750px;
+  width: 680px;
+  height: 760px;
   position: relative;
 }
 
-/* PAGES */
+/* PAGE */
 .page {
   position: absolute;
   width: 100%;
   height: 100%;
   left: 100%;
   opacity: 0;
-  transition: 0.5s;
-  background: white;
+  transition: 0.6s;
+  border-radius: 25px;
   padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+
+  /* 💖 FULL PAGE DESIGN */
+  background: linear-gradient(180deg, #ffffff, #ffe4ec);
+  overflow-y: auto;
 }
 
+/* ACTIVE PAGE */
 .page.active {
   left: 0;
   opacity: 1;
@@ -38,7 +42,7 @@ body {
   left: -100%;
 }
 
-/* CENTER */
+/* CENTER CONTENT */
 .center {
   display: flex;
   flex-direction: column;
@@ -46,64 +50,100 @@ body {
   text-align: center;
 }
 
-/* COVER */
-.coverBox {
-  background: linear-gradient(pink, lightgreen);
-  padding: 40px;
-  border-radius: 20px;
+/* 💎 COVER */
+.cover {
+  background: linear-gradient(135deg, #ffb6c1, #ffdde1);
+  color: white;
 }
 
-/* LINES */
-.lines {
-  width: 80%;
-  border-bottom: 1px solid #aaa;
-  margin: 10px auto;
+.mainTitle {
+  font-size: 36px;
+  margin-top: 20px;
 }
 
-/* BOX */
-.box {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
+/* ✨ HEADINGS */
+h2 {
+  margin-bottom: 10px;
 }
 
-/* CIRCLE LIST */
-.circle {
-  width: 10px;
-  height: 10px;
-  border: 1px solid black;
+/* 💖 DECORATIVE BLOBS */
+.page::before {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 200px;
+  height: 200px;
+  background: #ffc0cb;
   border-radius: 50%;
-  margin: 8px auto;
+  opacity: 0.3;
 }
 
-/* TEXTAREA */
+.page::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 150px;
+  height: 150px;
+  background: #ffb6c1;
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+/* ✍🏽 LINES (REAL JOURNAL LOOK) */
+.lines {
+  width: 90%;
+  border-bottom: 1px solid #bbb;
+  margin: 12px auto;
+}
+
+/* 📝 BIG WRITING AREA */
 .journalBox {
   width: 100%;
-  height: 200px;
+  height: 250px;
   border: none;
   outline: none;
   margin-top: 10px;
+  font-size: 16px;
+  padding: 10px;
 
-  background-image: linear-gradient(#ddd 1px, transparent 1px);
-  background-size: 100% 28px;
+  background-image: linear-gradient(#e0aab8 1px, transparent 1px);
+  background-size: 100% 30px;
 }
 
-/* STORY */
-.story {
-  font-style: italic;
+/* 📋 TASK LIST (FIXED) */
+.task {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
 }
 
-/* AFFIRMATION BUBBLE */
+.task input {
+  margin-right: 10px;
+}
+
+/* 📝 NOTES BOX (BIG FIX) */
+.notesBox {
+  margin-top: 10px;
+}
+
+.notesBox .lines {
+  width: 95%;
+}
+
+/* 💬 AFFIRMATION BUBBLE */
 .bubble {
-  border: 2px solid black;
-  border-radius: 50%;
-  padding: 30px;
+  background: white;
+  border-radius: 50px;
+  padding: 20px;
   margin: 20px auto;
+  width: 70%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* NAV */
 .nav {
   position: absolute;
-  bottom: 20px;
+  bottom: 15px;
 }
