@@ -1,22 +1,17 @@
 body {
   margin: 0;
   font-family: Georgia;
-  background: linear-gradient(#ffe4ec, white);
+  background: #f9f6f7;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-/* LOGIN */
-.container {
-  text-align: center;
-}
-
 /* BOOK */
 .book {
   width: 650px;
-  height: 720px;
+  height: 750px;
   position: relative;
 }
 
@@ -31,6 +26,7 @@ body {
   background: white;
   padding: 40px;
   border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
 }
 
 .page.active {
@@ -50,26 +46,60 @@ body {
   text-align: center;
 }
 
-/* IMAGE */
-.coverImg {
-  width: 100%;
+/* COVER */
+.coverBox {
+  background: linear-gradient(pink, lightgreen);
+  padding: 40px;
   border-radius: 20px;
 }
 
-/* TEXT */
-.storyText {
-  font-family: cursive;
+/* LINES */
+.lines {
+  width: 80%;
+  border-bottom: 1px solid #aaa;
+  margin: 10px auto;
 }
 
-/* INPUT */
+/* BOX */
+.box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+/* CIRCLE LIST */
+.circle {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 8px auto;
+}
+
+/* TEXTAREA */
 .journalBox {
   width: 100%;
-  height: 120px;
+  height: 200px;
+  border: none;
+  outline: none;
   margin-top: 10px;
+
+  background-image: linear-gradient(#ddd 1px, transparent 1px);
+  background-size: 100% 28px;
 }
 
-.journalBox.small {
-  height: 60px;
+/* STORY */
+.story {
+  font-style: italic;
+}
+
+/* AFFIRMATION BUBBLE */
+.bubble {
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 30px;
+  margin: 20px auto;
 }
 
 /* NAV */
