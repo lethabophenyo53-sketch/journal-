@@ -10,8 +10,8 @@ body {
 
 /* BOOK */
 .book {
-  width: 680px;
-  height: 760px;
+  width: 700px;
+  height: 780px;
   position: relative;
 }
 
@@ -26,13 +26,10 @@ body {
   border-radius: 25px;
   padding: 40px;
   box-shadow: 0 25px 70px rgba(0,0,0,0.15);
-
-  /* 💖 FULL PAGE DESIGN */
   background: linear-gradient(180deg, #ffffff, #ffe4ec);
   overflow-y: auto;
 }
 
-/* ACTIVE PAGE */
 .page.active {
   left: 0;
   opacity: 1;
@@ -42,38 +39,14 @@ body {
   left: -100%;
 }
 
-/* CENTER CONTENT */
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-/* 💎 COVER */
-.cover {
-  background: linear-gradient(135deg, #ffb6c1, #ffdde1);
-  color: white;
-}
-
-.mainTitle {
-  font-size: 36px;
-  margin-top: 20px;
-}
-
-/* ✨ HEADINGS */
-h2 {
-  margin-bottom: 10px;
-}
-
-/* 💖 DECORATIVE BLOBS */
+/* DECOR BLOBS */
 .page::before {
   content: "";
   position: absolute;
   bottom: -40px;
   left: -40px;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   background: #ffc0cb;
   border-radius: 50%;
   opacity: 0.3;
@@ -84,66 +57,74 @@ h2 {
   position: absolute;
   top: -30px;
   right: -30px;
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   background: #ffb6c1;
   border-radius: 50%;
   opacity: 0.2;
 }
 
-/* ✍🏽 LINES (REAL JOURNAL LOOK) */
-.lines {
-  width: 90%;
-  border-bottom: 1px solid #bbb;
-  margin: 12px auto;
+/* COVER */
+.cover {
+  background: linear-gradient(135deg, #ffb6c1, #ffdde1);
+  color: white;
+  text-align: center;
 }
 
-/* 📝 BIG WRITING AREA */
-.journalBox {
+.mainTitle {
+  font-size: 42px;
+}
+
+/* TEXT */
+h2 {
+  text-align: center;
+}
+
+.lines {
+  border-bottom: 1px solid #bbb;
+  margin: 10px 0;
+}
+
+/* TEXTAREA */
+textarea {
   width: 100%;
-  height: 250px;
+  height: 220px;
   border: none;
   outline: none;
-  margin-top: 10px;
   font-size: 16px;
   padding: 10px;
-
   background-image: linear-gradient(#e0aab8 1px, transparent 1px);
-  background-size: 100% 30px;
+  background-size: 100% 28px;
 }
 
-/* 📋 TASK LIST (FIXED) */
+/* TASK */
 .task {
-  display: flex;
-  align-items: center;
   margin: 8px 0;
 }
 
-.task input {
-  margin-right: 10px;
-}
-
-/* 📝 NOTES BOX (BIG FIX) */
-.notesBox {
-  margin-top: 10px;
-}
-
-.notesBox .lines {
-  width: 95%;
-}
-
-/* 💬 AFFIRMATION BUBBLE */
-.bubble {
-  background: white;
-  border-radius: 50px;
-  padding: 20px;
-  margin: 20px auto;
-  width: 70%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* NAV */
+/* BUTTONS */
 .nav {
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background: #ffb6c1;
+  color: white;
+  cursor: pointer;
+}
+
+/* LOGIN */
+.container {
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 250px;
 }
