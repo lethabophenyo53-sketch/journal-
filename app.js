@@ -1,34 +1,11 @@
-const today = new Date().toISOString().split("T")[0]; 
-// example: 2026-04-05
-
-const inputs = document.querySelectorAll("textarea");
-
-// LOAD
-window.addEventListener("load", () => {
-  inputs.forEach(input => {
-    const key = today + "-" + input.id;
-    const saved = localStorage.getItem(key);
-    if (saved) {
-      input.value = saved;
-    }
-  });
-});
-
-// SAVE
-inputs.forEach(input => {
-  input.addEventListener("input", () => {
-    const key = today + "-" + input.id;
-    localStorage.setItem(key, input.value);
-  });
-});
-
-// PAGE NAVIGATION
 let currentPage = 0;
 const pages = document.querySelectorAll(".page");
 
+// PAGE SYSTEM
 function showPage(index) {
   pages.forEach((p, i) => {
-    p.classList.toggle("active", i === index);
+    p.classList.remove("active");
+    if (i === index) p.classList.add("active");
   });
 }
 
@@ -45,92 +22,30 @@ function prevPage() {
     showPage(currentPage);
   }
 }
-/* DAILY SAVE */
+
+// DAILY SAVE SYSTEM
 const today = new Date().toISOString().split("T")[0];
 
-function saveData() {
-  const data = {
-    gratitude: document.getElementById("gratitude")?.value,
-    affirm: document.getElementById("affirm")?.value,
-    tasks: document.getElementById("tasks")?.value,
-    notes: document.getElementById("notes")?.value,
-    story: document.getElementById("story")?.value,
-    closing: document.getElementById("closing")?.value
-  };
+const inputs = document.querySelectorAll("textarea");
 
-  localStorage.setItem("journal-" + today, JSON.stringify(data));
-}
-
-function loadData() {
-  const data = JSON.parse(localStorage.getItem("journal-" + today));
-  if (!data) return;
-
-  Object.keys(data).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = data[id];
+// LOAD
+window.addEventListener("load", () => {
+  inputs.forEach(input => {
+    const key = today + "-" + input.id;
+    const saved = localStorage.getItem(key);
+    if (saved) input.value = saved;
   });
-}
-
-setInterval(saveData, 2000);
-
-document.addEventListener("DOMContentLoaded", () => {
-  showPage();
-  loadData();
 });
 
-/* LOGIN + PAYMENT */
-function signup() {
-  const email = document.getElementById("email").value;
-  const pass = document.getElementById("password").value;
-
-  localStorage.setItem(email, pass);
-  alert("Account created!");
-}
-
-function login() {
-  const email = document.getElementById("email").value;
-  const pass = document.getElementById("password").value;
-
-  const saved = localStorage.getItem(email);
-
-  if (saved === pass) {
-
-    // 👑 Admin
-    if (email === "lethabophenyo53@gmail.com") {
-      let choice = confirm("Go to Admin Panel? Click Cancel for Journal");
-
-      if (choice) {
-        window.location.href = "admin.html";
-      } else {
-        window.location.href = "journal.html";
-      }
-      return;
-    }
-
-    // 💎 Normal user
-    if (localStorage.getItem("paid-" + email) === "true") {
-      window.location.href = "journal.html";
-    } else {
-      alert("Please pay R50 to access journal");
-    }
-
-  } else {
-    alert("Invalid login");
-  }
-}
-function payNow() {
-  let handler = PaystackPop.setup({
-    key: 'pk_test_xxxx',
-    email: document.getElementById("email").value,
-    amount: 5000,
-    callback: function () {
-      localStorage.setItem(
-        "paid-" + document.getElementById("email").value,
-        "true"
-      );
-      alert("Payment successful!");
-    }
+// SAVE
+inputs.forEach(input => {
+  input.addEventListener("input", () => {
+    const key = today + "-" + input.id;
+    localStorage.setItem(key, input.value);
   });
+});
 
-  handler.openIframe();
-}
+// INIT FIRST PAGE
+document.addEventListener("DOMContentLoaded", () => {
+  showPage(0);
+});
