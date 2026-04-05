@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin</title>
-</head>
-
-<!DOCTYPE html>
-<html>
-<head>
   <title>Admin Panel</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,8 +16,7 @@
 
 <script>
 function logout() {
-  localStorage.clear();
-  window.location.href = "index.html";
+  window.location.href = "index.html"; // ✅ FIXED (no delete)
 }
 
 function goJournal() {
