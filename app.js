@@ -1,51 +1,38 @@
-let currentPage = 0;
+let current = 0;
 const pages = document.querySelectorAll(".page");
 
-// PAGE SYSTEM
-function showPage(index) {
-  pages.forEach((p, i) => {
-    p.classList.remove("active");
-    if (i === index) p.classList.add("active");
-  });
+function openBook() {
+  document.querySelector(".cover").style.display = "none";
+  document.getElementById("book").style.display = "block";
+  show(0);
 }
 
-function nextPage() {
-  if (currentPage < pages.length - 1) {
-    currentPage++;
-    showPage(currentPage);
+function show(i) {
+  pages.forEach(p => p.classList.remove("active"));
+  pages[i].classList.add("active");
+}
+
+function next() {
+  if (current < pages.length - 1) {
+    current++;
+    show(current);
   }
 }
 
-function prevPage() {
-  if (currentPage > 0) {
-    currentPage--;
-    showPage(currentPage);
+function prev() {
+  if (current > 0) {
+    current--;
+    show(current);
   }
 }
 
-// DAILY SAVE SYSTEM
-const today = new Date().toISOString().split("T")[0];
+/* SAVE SYSTEM */
+const inputs = document.querySelectorAll("textarea, input");
 
-const inputs = document.querySelectorAll("textarea");
+inputs.forEach(el => {
+  el.value = localStorage.getItem(el.id) || "";
 
-// LOAD
-window.addEventListener("load", () => {
-  inputs.forEach(input => {
-    const key = today + "-" + input.id;
-    const saved = localStorage.getItem(key);
-    if (saved) input.value = saved;
+  el.addEventListener("input", () => {
+    localStorage.setItem(el.id, el.value);
   });
-});
-
-// SAVE
-inputs.forEach(input => {
-  input.addEventListener("input", () => {
-    const key = today + "-" + input.id;
-    localStorage.setItem(key, input.value);
-  });
-});
-
-// INIT FIRST PAGE
-document.addEventListener("DOMContentLoaded", () => {
-  showPage(0);
 });
