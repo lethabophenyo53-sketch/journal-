@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veloura Journal</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -9,55 +12,66 @@
 
 <div class="book">
 
+  <!-- COVER -->
   <div class="page active">
-    <img src="images/Cover page.jpg" class="bg">
+    <img src="Cover page.jpg" class="bg">
   </div>
 
+  <!-- BELONGS TO -->
   <div class="page">
-    <img src="images/belongs to page.jpg" class="bg">
+    <img src="belongs to page.jpg" class="bg">
   </div>
 
+  <!-- DAILY TASK -->
   <div class="page">
-    <img src="images/Daily task.jpg" class="bg">
-    <textarea class="input gratitude" id="gratitude"></textarea>
-    <textarea class="input affirm" id="affirm"></textarea>
+    <img src="Daily task.jpg" class="bg">
+    <textarea class="input" id="gratitude" placeholder="Gratitude..."></textarea>
+    <textarea class="input" id="affirm" placeholder="Affirmations..."></textarea>
   </div>
 
+  <!-- WEEKLY PLANNER -->
   <div class="page">
-    <img src="images/Weekly planner.jpg" class="bg">
-    <textarea class="input tasks" id="tasks"></textarea>
+    <img src="Weekly planner.jpg" class="bg">
+    <textarea class="input" id="tasks" placeholder="Weekly tasks..."></textarea>
   </div>
 
+  <!-- NOTES -->
   <div class="page">
-    <img src="images/notes.jpg" class="bg">
-    <textarea class="input notes" id="notes"></textarea>
+    <img src="notes.jpg" class="bg">
+    <textarea class="input" id="notes" placeholder="Notes..."></textarea>
   </div>
 
+  <!-- DAILY AFFIRMATION -->
   <div class="page">
-    <img src="images/Daily Affirmation.jpg" class="bg">
-    <textarea class="input story" id="story"></textarea>
+    <img src="Daily Affirmation.jpg" class="bg">
+    <textarea class="input" id="story" placeholder="Write here..."></textarea>
   </div>
 
+  <!-- REAL STORY -->
   <div class="page">
-    <img src="images/Real story.jpg" class="bg">
+    <img src="Real story.jpg" class="bg">
   </div>
 
+  <!-- GLOW ROUTINE -->
   <div class="page">
-    <img src="images/Glow routine.jpg" class="bg">
+    <img src="Glow routine.jpg" class="bg">
   </div>
 
+  <!-- CLOSING -->
   <div class="page">
-    <img src="images/Closing page.jpg" class="bg">
-    <textarea class="input closing" id="closing"></textarea>
+    <img src="Closing page.jpg" class="bg">
+    <textarea class="input" id="closing" placeholder="Closing thoughts..."></textarea>
   </div>
 
 </div>
 
+<!-- NAV BUTTONS -->
 <div class="nav">
   <button onclick="prevPage()">⬅</button>
   <button onclick="nextPage()">➡</button>
 </div>
 
 <script src="app.js"></script>
+
 </body>
 </html>
