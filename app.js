@@ -76,8 +76,8 @@ function login() {
 
   if (saved === pass) {
 
-    // 👑 Admin can choose where to go
-    if (email === "test@gmail.com") {
+    // 👑 Admin
+    if (email === "lethabophenyo53@gmail.com") {
       let choice = confirm("Go to Admin Panel? Click Cancel for Journal");
 
       if (choice) {
@@ -85,11 +85,10 @@ function login() {
       } else {
         window.location.href = "journal.html";
       }
-
       return;
     }
 
-    // 💎 Normal users
+    // 💎 Normal user
     if (localStorage.getItem("paid-" + email) === "true") {
       window.location.href = "journal.html";
     } else {
