@@ -5,6 +5,7 @@ function showPage() {
 
   pages.forEach((p, i) => {
     p.classList.remove("active", "prev");
+
     if (i === currentPage) p.classList.add("active");
     if (i === currentPage - 1) p.classList.add("prev");
   });
@@ -25,13 +26,14 @@ function prevPage() {
   }
 }
 
-/* 📅 DAILY SAVE SYSTEM */
+/* DAILY SAVE */
 const today = new Date().toISOString().split("T")[0];
 
 function saveData() {
   const data = {
     gratitude: document.getElementById("gratitude")?.value,
     affirm: document.getElementById("affirm")?.value,
+    tasks: document.getElementById("tasks")?.value,
     notes: document.getElementById("notes")?.value,
     story: document.getElementById("story")?.value,
     closing: document.getElementById("closing")?.value
@@ -42,17 +44,14 @@ function saveData() {
 
 function loadData() {
   const data = JSON.parse(localStorage.getItem("journal-" + today));
-
   if (!data) return;
 
-  document.getElementById("gratitude").value = data.gratitude || "";
-  document.getElementById("affirm").value = data.affirm || "";
-  document.getElementById("notes").value = data.notes || "";
-  document.getElementById("story").value = data.story || "";
-  document.getElementById("closing").value = data.closing || "";
+  Object.keys(data).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = data[id];
+  });
 }
 
-/* AUTO SAVE */
 setInterval(saveData, 2000);
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -60,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadData();
 });
 
-/* 🔐 LOGIN SYSTEM */
+/* LOGIN + PAYMENT */
 function signup() {
   const email = document.getElementById("email").value;
   const pass = document.getElementById("password").value;
@@ -78,20 +77,17 @@ function login() {
     return;
   }
 
-  const saved = localStorage.getItem(email);
-
-  if (saved === pass) {
+  if (localStorage.getItem(email) === pass) {
     if (localStorage.getItem("paid-" + email) === "true") {
       window.location.href = "journal.html";
     } else {
-      alert("Please upgrade to premium (R50)");
+      alert("Pay R50 to unlock");
     }
   } else {
     alert("Invalid login");
   }
 }
 
-/* 💳 PAYSTACK */
 function payNow() {
   let handler = PaystackPop.setup({
     key: 'pk_test_xxxx',
