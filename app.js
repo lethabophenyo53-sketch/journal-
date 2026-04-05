@@ -1,22 +1,26 @@
+const today = new Date().toISOString().split("T")[0]; 
+// example: 2026-04-05
+
 const inputs = document.querySelectorAll("textarea");
 
-// Load saved data
+// LOAD
 window.addEventListener("load", () => {
   inputs.forEach(input => {
-    const saved = localStorage.getItem(input.id);
+    const key = today + "-" + input.id;
+    const saved = localStorage.getItem(key);
     if (saved) {
       input.value = saved;
     }
   });
 });
 
-// Save on typing
+// SAVE
 inputs.forEach(input => {
   input.addEventListener("input", () => {
-    localStorage.setItem(input.id, input.value);
+    const key = today + "-" + input.id;
+    localStorage.setItem(key, input.value);
   });
 });
-
 
 // PAGE NAVIGATION
 let currentPage = 0;
