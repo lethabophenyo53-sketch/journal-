@@ -1,31 +1,46 @@
+const inputs = document.querySelectorAll("textarea");
+
+// Load saved data
+window.addEventListener("load", () => {
+  inputs.forEach(input => {
+    const saved = localStorage.getItem(input.id);
+    if (saved) {
+      input.value = saved;
+    }
+  });
+});
+
+// Save on typing
+inputs.forEach(input => {
+  input.addEventListener("input", () => {
+    localStorage.setItem(input.id, input.value);
+  });
+});
+
+
+// PAGE NAVIGATION
 let currentPage = 0;
+const pages = document.querySelectorAll(".page");
 
-function showPage() {
-  const pages = document.querySelectorAll(".page");
-
+function showPage(index) {
   pages.forEach((p, i) => {
-    p.classList.remove("active", "prev");
-
-    if (i === currentPage) p.classList.add("active");
-    if (i === currentPage - 1) p.classList.add("prev");
+    p.classList.toggle("active", i === index);
   });
 }
 
 function nextPage() {
-  const pages = document.querySelectorAll(".page");
   if (currentPage < pages.length - 1) {
     currentPage++;
-    showPage();
+    showPage(currentPage);
   }
 }
 
 function prevPage() {
   if (currentPage > 0) {
     currentPage--;
-    showPage();
+    showPage(currentPage);
   }
 }
-
 /* DAILY SAVE */
 const today = new Date().toISOString().split("T")[0];
 
