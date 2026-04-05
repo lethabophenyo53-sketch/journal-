@@ -72,22 +72,34 @@ function login() {
   const email = document.getElementById("email").value;
   const pass = document.getElementById("password").value;
 
-  if (email === "lethabophenyo53@gmail.com") {
-    window.location.href = "admin.html";
-    return;
-  }
+  const saved = localStorage.getItem(email);
 
-  if (localStorage.getItem(email) === pass) {
+  if (saved === pass) {
+
+    // 👑 Admin can choose where to go
+    if (email === "test@gmail.com") {
+      let choice = confirm("Go to Admin Panel? Click Cancel for Journal");
+
+      if (choice) {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "journal.html";
+      }
+
+      return;
+    }
+
+    // 💎 Normal users
     if (localStorage.getItem("paid-" + email) === "true") {
       window.location.href = "journal.html";
     } else {
-      alert("Pay R50 to unlock");
+      alert("Please pay R50 to access journal");
     }
+
   } else {
     alert("Invalid login");
   }
 }
-
 function payNow() {
   let handler = PaystackPop.setup({
     key: 'pk_test_xxxx',
