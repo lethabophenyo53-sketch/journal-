@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aura Journal</title>
+  <title>Veloura Journal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,107 +10,64 @@
 <div class="book">
 
   <!-- COVER -->
-  <div class="page active center cover">
-    <div class="coverBox">
-      <h1 class="mainTitle">Aura Journal</h1>
-      <p>Daily Journal</p>
-      <small>Self discovery & growth</small>
-    </div>
+  <div class="page active cover">
+    <h1 class="mainTitle">Daily Journal</h1>
+    <p>Self Love • Growth • Healing</p>
   </div>
 
-  <!-- BELONGS TO -->
-  <div class="page center">
+  <!-- BELONGS -->
+  <div class="page">
     <h2>This book belongs to:</h2>
     <div class="lines"></div>
     <div class="lines"></div>
     <div class="lines"></div>
   </div>
 
-  <!-- DAILY LIFE -->
-  <div class="page center">
-    <h2>My Daily Life</h2>
+  <!-- GRATITUDE -->
+  <div class="page">
+    <h2>Gratitude & Affirmations</h2>
 
-    <div class="box">
-      <h4>Things To Do</h4>
-      <div class="task"><input type="checkbox"> Study / Work</div>
-      <div class="task"><input type="checkbox"> Self-care</div>
-      <div class="task"><input type="checkbox"> Exercise</div>
-      <div class="task"><input type="checkbox"> Drink water</div>
-    </div>
+    <p>Things I'm grateful for:</p>
+    <textarea id="gratitude"></textarea>
 
-    <div class="notesBox">
-      <h3>Notes</h3>
-      <div class="lines"></div>
-      <div class="lines"></div>
-      <div class="lines"></div>
-      <div class="lines"></div>
-      <div class="lines"></div>
-      <div class="lines"></div>
-      <div class="lines"></div>
-      <div class="lines"></div>
-      <div class="lines"></div>
-    </div>
+    <p>Affirmations:</p>
+    <textarea id="affirm"></textarea>
   </div>
 
-  <!-- PROMPT -->
-  <div class="page center">
-    <h2>Daily Prompt</h2>
+  <!-- DAILY TASK -->
+  <div class="page">
+    <h2>My Daily Tasks</h2>
 
-    <p>Things you are grateful for:</p>
-    <div class="lines"></div>
-    <div class="lines"></div>
-    <div class="lines"></div>
-    <div class="lines"></div>
+    <div class="task"><input type="checkbox"> Drink water</div>
+    <div class="task"><input type="checkbox"> Skincare</div>
+    <div class="task"><input type="checkbox"> Positive thoughts</div>
+    <div class="task"><input type="checkbox"> Move body</div>
 
-    <p>Today's affirmations:</p>
-    <div class="lines"></div>
-    <div class="lines"></div>
-    <div class="lines"></div>
+    <h3>Notes</h3>
+    <textarea id="notes"></textarea>
   </div>
 
   <!-- STORY -->
-  <div class="page center">
+  <div class="page">
     <h2>A Real Story</h2>
-
-    <p class="story">
-      You are not behind in life. You are growing quietly.
-      And one day, it will all make sense.
-    </p>
-
-    <textarea class="journalBox"></textarea>
-  </div>
-
-  <!-- AFFIRMATION -->
-  <div class="page center">
-    <h2>Daily Affirmation</h2>
-
-    <div class="bubble">
-      <p id="affirmation"></p>
-    </div>
-
-    <div class="lines"></div>
-    <div class="lines"></div>
+    <textarea id="story"></textarea>
   </div>
 
   <!-- ROUTINE -->
-  <div class="page center">
+  <div class="page">
     <h2>Glow Up Routine</h2>
 
-    <div class="task"><input type="checkbox"> Study / Work</div>
-    <div class="task"><input type="checkbox"> Self-care</div>
-    <div class="task"><input type="checkbox"> Exercise</div>
     <div class="task"><input type="checkbox"> Drink water</div>
+    <div class="task"><input type="checkbox"> Skincare</div>
+    <div class="task"><input type="checkbox"> Positive thoughts</div>
+    <div class="task"><input type="checkbox"> Move body</div>
   </div>
 
   <!-- CLOSING -->
-  <div class="page center">
+  <div class="page">
     <h2>Closing Page</h2>
-
-    <p>You are enough!!</p>
-
-    <div class="lines"></div>
-    <div class="lines"></div>
-    <div class="lines"></div>
+    <p>You are enough!! 💖</p>
+    <textarea id="closing"></textarea>
   </div>
 
 </div>
