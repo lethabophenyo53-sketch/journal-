@@ -121,4 +121,26 @@ input {
   display: block;
   margin: 10px auto;
   padding: 10px;
+
+  .page {
+  display: none;
+  position: relative;
+}
+
+.page.active {
+  display: block;
+}
+
+.bg {
+  width: 100%;
+  height: auto;
+}
+
+textarea {
+  position: absolute;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+}
 }
